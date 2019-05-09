@@ -42,4 +42,11 @@ int main(int argc, char **argv)
     MPI_Scatter(data, c, MPI_INT, chunk, c, MPI_INT, 0, MPI_COMM_WORLD);
     s = (n >= c * (rank+1)) ? c : n - c * rank;
     qsort(chunk, s, sizeof(int),cmp);
+
+    for(int i=0; i<c; i++)
+    {
+        printf("%d ", chunk[i]);
+    }
+
+    MPI_Finalize();
 }
