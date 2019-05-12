@@ -265,6 +265,7 @@ int main(int argc, char **argv)
     {
         t = t_end - t_begin;
         printf("%f\n", t);
+/*
         FILE *output_file = fopen(output, "w+");
         if (!output_file)
         {
@@ -276,6 +277,7 @@ int main(int argc, char **argv)
             fprintf(output_file, "%d ", data[i]);
         }
         fclose(output_file);
+*/
     }
     MPI_Finalize();
 }
