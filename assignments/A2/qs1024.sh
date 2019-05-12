@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
 #SBATCH -A g2019005
-#SBATCH -p core -n 1024
+#SBATCH -p node -n 1024
 #SBATCH -t 30:00
 
 echo "1024 cores"
