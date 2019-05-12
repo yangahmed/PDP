@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
 #SBATCH -A g2019005
-#SBATCH -p core -n 64
+#SBATCH -p node -n 64
 #SBATCH -t 1-00:00:00
 
 echo "64 cores"

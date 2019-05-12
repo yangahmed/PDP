@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
 #SBATCH -A g2019005
-#SBATCH -p core -n 512
+#SBATCH -p node -n 512
 #SBATCH -t 40:00
 
 echo "512 cores"

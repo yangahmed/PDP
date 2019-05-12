@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
 #SBATCH -A g2019005
-#SBATCH -p core -n 128
+#SBATCH -p node -n 128
 #SBATCH -t 3:00:00
 
 echo "128 cores 125000000 nums"
