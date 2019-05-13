@@ -1,19 +1,11 @@
 #!/bin/bash -l
 
 #SBATCH -A g2019005
-#SBATCH -p node -n 32
+#SBATCH -p node -n 16
 #SBATCH -t 3-00:00:00
 
 echo "125000000 nums"
 module load gcc openmpi
-
-echo "=============="
-echo "32 cores input type 3"
-mpirun -np 32 ./quicksort /proj/g2019005/nobackup/qsort_indata/input125000000.txt out.txt 3
-
-echo "=============="
-echo "16 cores input type 3"
-mpirun -np 16 ./quicksort /proj/g2019005/nobackup/qsort_indata/input125000000.txt out.txt 3
 
 echo "=============="
 echo "8 cores input type 3"
