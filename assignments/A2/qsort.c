@@ -10,7 +10,7 @@ int cmp (const void * a, const void * b)
 
 int main(int argc, char **argv){
     char *input = argv[1];
-    int n, *data;
+    int n, *data, i;
     double t_begin, t_end, t;
 
     FILE *input_file = fopen(input, "r");
@@ -22,7 +22,7 @@ int main(int argc, char **argv){
     fseek(input_file, 0, SEEK_SET);
     fscanf(input_file, "%d", &n);
     data = (int *)malloc(n*sizeof(int));
-    for(int i=0; i<n; i++) 
+    for(i=0; i<n; i++) 
         fscanf(input_file, "%d", &(data[i]));
     fclose(input_file);
 
