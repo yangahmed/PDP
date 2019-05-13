@@ -1,0 +1,21 @@
+125000000 nums
+==============
+32 cores input type 3
+17.936073
+==============
+16 cores input type 3
+18.045141
+==============
+8 cores input type 3
+--------------------------------------------------------------------------
+ORTE has lost communication with a remote daemon.
+
+  HNP daemon   : [[22730,0],0] on node r171
+  Remote daemon: [[22730,0],1] on node r173
+
+This is usually due to either a failure of the TCP network
+connection to the node, or possibly an internal failure of
+the daemon itself. We cannot recover from this failure, and
+therefore will terminate the job.
+--------------------------------------------------------------------------
+slurmstepd: error: *** JOB 8737361 ON r171 CANCELLED AT 2019-05-13T17:14:32 ***

@@ -9,10 +9,12 @@ int cmp (const void * a, const void * b)
 }
 
 int main(int argc, char **argv){
+    printf("start\n");
     char *input = argv[1];
     int n, *data, i;
     double t_begin, t_end, t;
 
+    printf("start reading\n");
     FILE *input_file = fopen(input, "r");
     if (!input_file)
     {
@@ -25,6 +27,7 @@ int main(int argc, char **argv){
     for(i=0; i<n; i++) 
         fscanf(input_file, "%d", &(data[i]));
     fclose(input_file);
+    printf("reading end\n");
 
     t_begin = time(NULL);
     qsort(data, n, sizeof(int),cmp);
