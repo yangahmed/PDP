@@ -195,6 +195,7 @@ int main(int argc, char **argv)
                     MPI_Send(larger,size,MPI_INT,rank+groupsize/2,rank,MPI_COMM_WORLD);
                     MPI_Recv(&recvsize,1,MPI_INT,rank+groupsize/2,111,MPI_COMM_WORLD,&status);
                     recv = (int *)malloc(recvsize*sizeof(int));
+                    printf("#%d size=%d recvsize=%d\n");
 
                     // printf("1 rsize=%d\n", recvsize);
                     MPI_Recv(recv,recvsize,MPI_INT,rank+groupsize/2,rank+groupsize/2,MPI_COMM_WORLD,&status);
@@ -224,6 +225,7 @@ int main(int argc, char **argv)
                     MPI_Send(smaller,size,MPI_INT,rank-groupsize/2,rank,MPI_COMM_WORLD);
                     MPI_Recv(&recvsize,1,MPI_INT,rank-groupsize/2,111,MPI_COMM_WORLD,&status);
                     recv = (int *)malloc(recvsize*sizeof(int));
+                    printf("#%d size=%d recvsize=%d\n");
                     // printf("2 rsize=%d\n", recvsize);
                     MPI_Recv(recv,recvsize,MPI_INT,rank-groupsize/2,rank-groupsize/2,MPI_COMM_WORLD,&status);
                     // printf("recv: %d\n", recv[1]);
