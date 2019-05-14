@@ -1,0 +1,24 @@
+4 cores
+==============
+input 500000000 type 2
+rank: 3 ready
+rank: 1 ready
+#3 size=897 recvsize=124999104
+rank: 0 ready
+rank: 2 ready
+#2 size=964 recvsize=124999022
+#1 size=124999104 recvsize=897
+rank 1 finish step 1
+#0 size=124999022 recvsize=964
+rank 0 finish step 1
+rank 3 finish step 1
+rank 2 finish step 1
+rank: 0 ready
+rank: 1 ready
+#0 size=1006 recvsize=921
+#1 size=921 recvsize=1006
+rank 0 finish step 2
+rank 1 finish step 2
+rank: 3 ready
+rank: 2 ready
+slurmstepd: error: *** JOB 8779371 ON r164 CANCELLED AT 2019-05-14T22:36:16 ***

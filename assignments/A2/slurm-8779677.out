@@ -1,0 +1,46 @@
+4 cores
+==============
+input 500000000 type 2
+rank: 3 ready
+(large)#3 step:1 i:0
+#3 large sent size to small
+rank: 1 ready
+(small)#1 step:1 i:0
+#1 small sent size to large
+#3 large sent data to small
+#3 size=897 recvsize=124999104
+rank: 2 ready
+(large)#2 step:1 i:0
+#2 large sent size to small
+rank: 0 ready
+(small)#0 step:1 i:0
+#0 small sent size to large
+#2 large sent data to small
+#2 size=964 recvsize=124999022
+#1 small sent data to large
+#1 size=124999104 recvsize=897
+#0 small sent data to large
+#0 size=124999022 recvsize=964
+rank 1 finish step 1
+rank 0 finish step 1
+rank 3 finish step 1
+rank 2 finish step 1
+rank: 0 ready
+(small)#0 step:2 i:0
+#0 small sent size to large
+rank: 1 ready
+(large)#1 step:2 i:0
+#1 large sent size to small
+#0 small sent data to large
+#0 size=1006 recvsize=921
+#1 large sent data to small
+#1 size=921 recvsize=1006
+rank 0 finish step 2
+rank 1 finish step 2
+rank: 3 ready
+(large)#3 step:2 i:1
+#3 large sent size to small
+rank: 2 ready
+(small)#2 step:2 i:1
+#2 small sent size to large
+slurmstepd: error: *** JOB 8779677 ON r334 CANCELLED AT 2019-05-15T00:52:59 ***
