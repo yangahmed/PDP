@@ -189,6 +189,7 @@ int main(int argc, char **argv)
 
                 if(rank<(i*groupsize+groupsize/2))
                 {
+                    printf("(small)#%d step:%d i:%d\n", rank, step, i);
                     size = c_size-b;
                     remain = b;
                     MPI_Send(&size,1,MPI_INT,rank+groupsize/2,111,MPI_COMM_WORLD);
@@ -219,6 +220,7 @@ int main(int argc, char **argv)
                 }
                 else
                 {
+                    printf("(large)#%d step:%d i:%d\n", rank, step, i);
                     size = b;
                     remain = c_size - b;
                     MPI_Send(&size,1,MPI_INT,rank-groupsize/2,111,MPI_COMM_WORLD);
