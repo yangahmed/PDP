@@ -193,8 +193,10 @@ int main(int argc, char **argv)
                     size = c_size-b;
                     remain = b;
                     MPI_Send(&size,1,MPI_INT,rank+groupsize/2,111,MPI_COMM_WORLD);
+                    printf("#%d small sent size to large\n", rank);
                     MPI_Send(larger,size,MPI_INT,rank+groupsize/2,rank,MPI_COMM_WORLD);
-                    MPI_Recv(&recvsize,1,MPI_INT,rank+groupsize/2,111,MPI_COMM_WORLD,&status);
+                    printf("#%d small sent data to large\n", rank);
+                    MPI_Recv(&recvsize,1,MPI_INT,rank+groupsize/2,222,MPI_COMM_WORLD,&status);
                     recv = (int *)malloc(recvsize*sizeof(int));
                     printf("#%d size=%d recvsize=%d\n", rank, size, recvsize);
 
@@ -223,8 +225,10 @@ int main(int argc, char **argv)
                     printf("(large)#%d step:%d i:%d\n", rank, step, i);
                     size = b;
                     remain = c_size - b;
-                    MPI_Send(&size,1,MPI_INT,rank-groupsize/2,111,MPI_COMM_WORLD);
+                    MPI_Send(&size,1,MPI_INT,rank-groupsize/2,222,MPI_COMM_WORLD);
+                    printf("#%d large sent size to small\n", rank);
                     MPI_Send(smaller,size,MPI_INT,rank-groupsize/2,rank,MPI_COMM_WORLD);
+                    printf("#%d large sent data to small\n", rank);
                     MPI_Recv(&recvsize,1,MPI_INT,rank-groupsize/2,111,MPI_COMM_WORLD,&status);
                     recv = (int *)malloc(recvsize*sizeof(int));
                     printf("#%d size=%d recvsize=%d\n", rank, size, recvsize);
@@ -241,7 +245,7 @@ int main(int argc, char **argv)
                     {
                         chunk[remain+ii] = recv[ii];
                     }
-                    qsort(chunk, s, sizeof(int),cmp);
+                    qsort(chunk, s, sizeof(int),cmp);  
                     free(smaller);
                     free(larger);
                     free(recv);
