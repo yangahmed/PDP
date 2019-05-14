@@ -26,7 +26,6 @@ int median(int size, int *arr)
 
 int main(int argc, char **argv)
 {
-    printf("1\n");
     char *input = argv[1];
     char *output = argv[2];
     int type = atoi(argv[3]);
@@ -34,7 +33,6 @@ int main(int argc, char **argv)
     double t_begin, t_end, t;
 
     MPI_Init(&argc, &argv);
-    printf("2\n");
     int n;
     int c, s;
     int *data, *chunk, *recv;
@@ -125,6 +123,7 @@ int main(int argc, char **argv)
 
         for(int i=0; i<step; i++)
         {
+            // printf("rank:%d  i:%d\n",rank, i);
             if(rank == 0)
             {
                 if(type == 1)
@@ -155,7 +154,7 @@ int main(int argc, char **argv)
                 }
             }
             MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
-            // printf("pivot=%d\n", pivot);
+            // printf("step:%d pivot=%d\n",step, pivot);
 
 
             if(rank>=i*groupsize && rank<(i+1)*groupsize)
@@ -178,6 +177,7 @@ int main(int argc, char **argv)
                     larger[ii-b] = chunk[ii];
                 }
                 free(chunk);
+                printf("rank: %d ready", rank);
                 // for(int jj=0; jj<b; jj++)
                 //     printf("%d ", smaller[jj]);
 
