@@ -227,14 +227,14 @@ int main(int argc, char **argv)
                     remain = c_size - b;
                     MPI_Recv(&recvsize,1,MPI_INT,rank-groupsize/2,111,MPI_COMM_WORLD,&status);
                     recv = (int *)malloc(recvsize*sizeof(int));
+                    // printf("2 rsize=%d\n", recvsize);
+                    MPI_Recv(recv,recvsize,MPI_INT,rank-groupsize/2,rank-groupsize/2,MPI_COMM_WORLD,&status);
+                    // printf("recv: %d\n", recv[1]);
                     MPI_Send(&size,1,MPI_INT,rank-groupsize/2,222,MPI_COMM_WORLD);
                     printf("#%d large sent size to small\n", rank);
                     MPI_Send(smaller,size,MPI_INT,rank-groupsize/2,rank,MPI_COMM_WORLD);
                     printf("#%d large sent data to small\n", rank);
                     printf("#%d size=%d recvsize=%d\n", rank, size, recvsize);
-                    // printf("2 rsize=%d\n", recvsize);
-                    MPI_Recv(recv,recvsize,MPI_INT,rank-groupsize/2,rank-groupsize/2,MPI_COMM_WORLD,&status);
-                    // printf("recv: %d\n", recv[1]);
                     s = remain + recvsize;
                     chunk = (int *)malloc(s*sizeof(int));
                     for(int ii=0; ii<remain; ii++)
