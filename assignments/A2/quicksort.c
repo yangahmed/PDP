@@ -177,7 +177,7 @@ int main(int argc, char **argv)
                     larger[ii-b] = chunk[ii];
                 }
                 free(chunk);
-                printf("rank: %d ready\n", rank);
+                // printf("rank: %d ready\n", rank);
                 // for(int jj=0; jj<b; jj++)
                 //     printf("%d ", smaller[jj]);
 
@@ -189,16 +189,16 @@ int main(int argc, char **argv)
 
                 if(rank<(i*groupsize+groupsize/2))
                 {
-                    printf("(small)#%d step:%d i:%d\n", rank, step, i);
+                    // printf("(small)#%d step:%d i:%d\n", rank, step, i);
                     size = c_size-b;
                     remain = b;
                     MPI_Send(&size,1,MPI_INT,rank+groupsize/2,111,MPI_COMM_WORLD);
-                    printf("#%d small sent size to large\n", rank);
+                    // printf("#%d small sent size to large\n", rank);
                     MPI_Send(larger,size,MPI_INT,rank+groupsize/2,rank,MPI_COMM_WORLD);
-                    printf("#%d small sent data to large\n", rank);
+                    // printf("#%d small sent data to large\n", rank);
                     MPI_Recv(&recvsize,1,MPI_INT,rank+groupsize/2,222,MPI_COMM_WORLD,&status);
                     recv = (int *)malloc(recvsize*sizeof(int));
-                    printf("#%d size=%d recvsize=%d\n", rank, size, recvsize);
+                    // printf("#%d size=%d recvsize=%d\n", rank, size, recvsize);
 
                     // printf("1 rsize=%d\n", recvsize);
                     MPI_Recv(recv,recvsize,MPI_INT,rank+groupsize/2,rank+groupsize/2,MPI_COMM_WORLD,&status);
@@ -222,7 +222,7 @@ int main(int argc, char **argv)
                 }
                 else
                 {
-                    printf("(large)#%d step:%d i:%d\n", rank, step, i);
+                    // printf("(large)#%d step:%d i:%d\n", rank, step, i);
                     size = b;
                     remain = c_size - b;
                     MPI_Recv(&recvsize,1,MPI_INT,rank-groupsize/2,111,MPI_COMM_WORLD,&status);
@@ -231,10 +231,10 @@ int main(int argc, char **argv)
                     MPI_Recv(recv,recvsize,MPI_INT,rank-groupsize/2,rank-groupsize/2,MPI_COMM_WORLD,&status);
                     // printf("recv: %d\n", recv[1]);
                     MPI_Send(&size,1,MPI_INT,rank-groupsize/2,222,MPI_COMM_WORLD);
-                    printf("#%d large sent size to small\n", rank);
+                    // printf("#%d large sent size to small\n", rank);
                     MPI_Send(smaller,size,MPI_INT,rank-groupsize/2,rank,MPI_COMM_WORLD);
-                    printf("#%d large sent data to small\n", rank);
-                    printf("#%d size=%d recvsize=%d\n", rank, size, recvsize);
+                    // printf("#%d large sent data to small\n", rank);
+                    // printf("#%d size=%d recvsize=%d\n", rank, size, recvsize);
                     s = remain + recvsize;
                     chunk = (int *)malloc(s*sizeof(int));
                     for(int ii=0; ii<remain; ii++)
@@ -252,7 +252,7 @@ int main(int argc, char **argv)
                 }
             }
         }
-	printf("rank %d finish step %d\n", rank, step);
+	// printf("rank %d finish step %d\n", rank, step);
     }
 
     if(rank == 0)
@@ -269,16 +269,16 @@ int main(int argc, char **argv)
         {
             displs[i] = displs[i-1] + chunksize[i-1];
         }
-	printf("g\n");
+	// printf("g\n");
     }
     MPI_Gatherv(chunk,c_size,MPI_INT,data,chunksize,displs,MPI_INT,0,MPI_COMM_WORLD);
 
     t_end = MPI_Wtime();
 
-    // if (rank == 0) 
-    // {
-    //     t = t_end - t_begin;
-    //     printf("%f\n", t);
+    if (rank == 0) 
+    {
+        t = t_end - t_begin;
+        printf("%f\n", t);
 
     //     FILE *output_file = fopen(output, "w+");
     //     if (!output_file)
@@ -291,6 +291,6 @@ int main(int argc, char **argv)
     //         fprintf(output_file, "%d ", data[i]);
     //     }
     //     fclose(output_file);
-    // }
+    }
     MPI_Finalize();
 }
