@@ -1,4 +1,0 @@
-16 cores
-==============
-input 2000000000 type 1
-slurmstepd: error: *** JOB 8777660 ON r311 CANCELLED AT 2019-05-14T19:46:07 ***

@@ -1,4 +1,0 @@
-256 cores 125000000 nums
-==============
-input type 1
-slurmstepd: error: *** JOB 8736703 ON r51 CANCELLED AT 2019-05-13T17:13:30 ***

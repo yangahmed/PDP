@@ -1,4 +1,0 @@
-8 cores
-==============
-input 1000000000 type 3
-slurmstepd: error: *** JOB 8749381 ON r208 CANCELLED AT 2019-05-14T01:37:36 DUE TO TIME LIMIT ***
