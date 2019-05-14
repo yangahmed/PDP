@@ -1,0 +1,7 @@
+4 cores
+==============
+input 125000000 type 3
+19.844809
+==============
+input 500000000 type 3
+slurmstepd: error: *** JOB 8775788 ON r182 CANCELLED AT 2019-05-14T17:56:55 ***

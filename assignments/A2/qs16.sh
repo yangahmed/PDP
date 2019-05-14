@@ -1,14 +1,14 @@
 #!/bin/bash -l
 
 #SBATCH -A g2019005
-#SBATCH -n 16
-#SBATCH -t 30:00
+#SBATCH -p node -n 16
+#SBATCH -t 3:00:00
 
 echo "16 cores"
 module load gcc openmpi
 
 echo "=============="
-echo "input 2000000000 type 3"
+echo "input 2000000000 type 1"
 mpirun ./quicksort /proj/g2019005/nobackup/qsort_indata/input2000000000.txt out.txt 3
 
 echo "=============="

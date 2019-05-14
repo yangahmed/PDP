@@ -26,6 +26,7 @@ int median(int size, int *arr)
 
 int main(int argc, char **argv)
 {
+    printf("1\n");
     char *input = argv[1];
     char *output = argv[2];
     int type = atoi(argv[3]);
@@ -33,6 +34,7 @@ int main(int argc, char **argv)
     double t_begin, t_end, t;
 
     MPI_Init(&argc, &argv);
+    printf("2\n");
     int n;
     int c, s;
     int *data, *chunk, *recv;
@@ -46,8 +48,9 @@ int main(int argc, char **argv)
 
     if(rank==0)
     {
+	//printf("start reading\n");
         FILE *input_file = fopen(input, "r");
-        if (!input_file)
+	if (!input_file)
         {
             printf("Error: failed to open input file\n");
             return -1;
@@ -57,8 +60,9 @@ int main(int argc, char **argv)
         c = (n%p!=0) ? n/p+1 : n/p;
         data = (int *)malloc(p*c*sizeof(int));
         for(int i=0; i<n; i++) 
-            fscanf(input_file, "%d", &(data[i]));
+           { fscanf(input_file, "%d", &(data[i]));}
         fclose(input_file);
+	//printf("reading end\n");
         for(int i=n; i<c*p; i++)
             data[i] = 0;
     }
@@ -107,7 +111,7 @@ int main(int argc, char **argv)
 
     for(step = 1; step < p; step = 2*step)
     {
-        // printf("step:%d\n", step);
+        //printf("rank:%d  step:%d\n",rank, step);
         groupsize = p/step;
 
         c_size = s;
@@ -240,6 +244,7 @@ int main(int argc, char **argv)
                 }
             }
         }
+	printf("rank %d finish step %d\n", rank, step);
     }
 
     if(rank == 0)
@@ -256,6 +261,7 @@ int main(int argc, char **argv)
         {
             displs[i] = displs[i-1] + chunksize[i-1];
         }
+	printf("g\n");
     }
     MPI_Gatherv(chunk,c_size,MPI_INT,data,chunksize,displs,MPI_INT,0,MPI_COMM_WORLD);
 

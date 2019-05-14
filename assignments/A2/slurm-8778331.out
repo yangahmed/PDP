@@ -1,0 +1,22 @@
+4 cores
+==============
+input 500000000 type 2
+1
+1
+1
+1
+2
+2
+2
+2
+start reading
+reading end
+rank:1  step:1
+rank:3  step:1
+rank:2  step:1
+rank:0  step:1
+rank:1  step:2
+rank:0  step:2
+rank:3  step:2
+rank:2  step:2
+slurmstepd: error: *** JOB 8778331 ON r113 CANCELLED AT 2019-05-14T20:18:02 ***

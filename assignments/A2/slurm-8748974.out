@@ -1,0 +1,6 @@
+125000000 nums
+==============
+8 cores input type 1
+start reading
+reading end
+slurmstepd: error: *** JOB 8748974 ON r198 CANCELLED AT 2019-05-13T21:59:14 ***
