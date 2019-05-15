@@ -1,0 +1,52 @@
+4 cores
+==============
+input 500000000 type 3
+rank: 3 ready
+(large)#3 step:1 i:0
+rank: 1 ready
+(small)#1 step:1 i:0
+#1 small sent size to large
+rank: 0 ready
+(small)#0 step:1 i:0
+#0 small sent size to large
+rank: 2 ready
+(large)#2 step:1 i:0
+#1 small sent data to large
+#1 size=124998405 recvsize=1614
+#3 large sent size to small
+#3 large sent data to small
+#3 size=1614 recvsize=124998405
+#2 large sent size to small
+#0 small sent data to large
+#0 size=124998308 recvsize=1660
+#2 large sent data to small
+#2 size=1660 recvsize=124998308
+rank 1 finish step 1
+rank 0 finish step 1
+rank 3 finish step 1
+rank 2 finish step 1
+rank: 0 ready
+(small)#0 step:2 i:0
+#0 small sent size to large
+rank: 1 ready
+(large)#1 step:2 i:0
+#0 small sent data to large
+#0 size=1648 recvsize=1582
+#1 large sent size to small
+#1 large sent data to small
+#1 size=1582 recvsize=1648
+rank 0 finish step 2
+rank 1 finish step 2
+rank: 3 ready
+(large)#3 step:2 i:1
+rank: 2 ready
+(small)#2 step:2 i:1
+#2 small sent size to large
+#3 large sent size to small
+#2 small sent data to large
+#2 size=249995016 recvsize=1702
+#3 large sent data to small
+#3 size=1702 recvsize=249995016
+rank 2 finish step 2
+rank 3 finish step 2
+g

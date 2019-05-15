@@ -1,0 +1,774 @@
+16 cores
+==============
+input 125000000 type 3
+rank: 8 ready
+(large)#8 step:1 i:0
+rank: 6 ready
+(small)#6 step:1 i:0
+#6 small sent size to large
+rank: 0 ready
+(small)#0 step:1 i:0
+#0 small sent size to large
+rank: 1 ready
+(small)#1 step:1 i:0
+#1 small sent size to large
+rank: 2 ready
+(small)#2 step:1 i:0
+#2 small sent size to large
+rank: 3 ready
+(small)#3 step:1 i:0
+#3 small sent size to large
+rank: 4 ready
+(small)#4 step:1 i:0
+#4 small sent size to large
+rank: 5 ready
+(small)#5 step:1 i:0
+#5 small sent size to large
+rank: 7 ready
+(small)#7 step:1 i:0
+#7 small sent size to large
+rank: 9 ready
+(large)#9 step:1 i:0
+rank: 10 ready
+(large)#10 step:1 i:0
+rank: 11 ready
+(large)#11 step:1 i:0
+rank: 12 ready
+(large)#12 step:1 i:0
+rank: 13 ready
+(large)#13 step:1 i:0
+rank: 14 ready
+(large)#14 step:1 i:0
+rank: 15 ready
+(large)#15 step:1 i:0
+#6 small sent data to large
+#6 size=7812281 recvsize=240
+rank 6 finish step 1
+#14 large sent size to small
+#14 large sent data to small
+#14 size=240 recvsize=7812281
+#0 small sent data to large
+#0 size=7812279 recvsize=219
+#8 large sent size to small
+#8 large sent data to small
+#8 size=219 recvsize=7812279
+#2 small sent data to large
+#2 size=7812269 recvsize=212
+rank 0 finish step 1
+#10 large sent size to small
+#10 large sent data to small
+#10 size=212 recvsize=7812269
+#4 small sent data to large
+#4 size=7812272 recvsize=248
+rank 2 finish step 1
+#12 large sent size to small
+rank 4 finish step 1
+#12 large sent data to small
+#12 size=248 recvsize=7812272
+#5 small sent data to large
+#5 size=7812260 recvsize=206
+#13 large sent size to small
+#13 large sent data to small
+#13 size=206 recvsize=7812260
+rank 5 finish step 1
+#1 small sent data to large
+#1 size=7812274 recvsize=249
+#9 large sent size to small
+#9 large sent data to small
+#9 size=249 recvsize=7812274
+rank 1 finish step 1
+#3 small sent data to large
+#3 size=7812264 recvsize=235
+#11 large sent size to small
+#11 large sent data to small
+#11 size=235 recvsize=7812264
+rank 3 finish step 1
+#15 large sent size to small
+#15 large sent data to small
+#15 size=202 recvsize=7812254
+#7 small sent data to large
+#7 size=7812254 recvsize=202
+rank 7 finish step 1
+rank 14 finish step 1
+rank 12 finish step 1
+rank 9 finish step 1
+rank 10 finish step 1
+rank 8 finish step 1
+rank 13 finish step 1
+rank 15 finish step 1
+rank: 7 ready
+(large)#7 step:2 i:0
+rank: 5 ready
+(large)#5 step:2 i:0
+#5 large sent size to small
+rank: 1 ready
+(small)#1 step:2 i:0
+#1 small sent size to large
+#1 small sent data to large
+#1 size=241 recvsize=217
+rank: 4 ready
+(large)#4 step:2 i:0
+#4 large sent size to small
+rank: 0 ready
+(small)#0 step:2 i:0
+#0 small sent size to large
+#0 small sent data to large
+#0 size=211 recvsize=240
+rank 11 finish step 1
+rank: 2 ready
+(small)#2 step:2 i:0
+#2 small sent size to large
+#2 small sent data to large
+#2 size=242 recvsize=227
+rank: 6 ready
+(large)#6 step:2 i:0
+#6 large sent size to small
+#6 large sent data to small
+#6 size=227 recvsize=242
+rank: 3 ready
+(small)#3 step:2 i:0
+#3 small sent size to large
+#3 small sent data to large
+#3 size=230 recvsize=242
+rank 3 finish step 2
+#7 large sent size to small
+#7 large sent data to small
+#7 size=242 recvsize=230
+rank 7 finish step 2
+#5 large sent data to small
+#5 size=217 recvsize=241
+rank 5 finish step 2
+#4 large sent data to small
+#4 size=240 recvsize=211
+rank 4 finish step 2
+rank 0 finish step 2
+rank 2 finish step 2
+rank 6 finish step 2
+rank 1 finish step 2
+rank: 10 ready
+(small)#10 step:2 i:1
+#10 small sent size to large
+rank: 14 ready
+(large)#14 step:2 i:1
+rank: 12 ready
+(large)#12 step:2 i:1
+rank: 8 ready
+(small)#8 step:2 i:1
+#8 small sent size to large
+rank: 13 ready
+(large)#13 step:2 i:1
+rank: 15 ready
+(large)#15 step:2 i:1
+rank: 11 ready
+(small)#11 step:2 i:1
+#11 small sent size to large
+rank: 9 ready
+(small)#9 step:2 i:1
+#9 small sent size to large
+#10 small sent data to large
+#10 size=15624339 recvsize=218
+#14 large sent size to small
+#14 large sent data to small
+#14 size=218 recvsize=15624339
+#8 small sent data to large
+#8 size=15624323 recvsize=250
+#12 large sent size to small
+#12 large sent data to small
+#12 size=250 recvsize=15624323
+#11 small sent data to large
+#11 size=15624323 recvsize=210
+#15 large sent size to small
+#15 large sent data to small
+#15 size=210 recvsize=15624323
+#13 large sent size to small
+#13 large sent data to small
+#13 size=215 recvsize=15624294
+#9 small sent data to large
+#9 size=15624294 recvsize=215
+rank 10 finish step 2
+rank 8 finish step 2
+rank 11 finish step 2
+rank 9 finish step 2
+rank 14 finish step 2
+rank 12 finish step 2
+rank 15 finish step 2
+rank 13 finish step 2
+rank: 2 ready
+(large)#2 step:4 i:0
+rank: 3 ready
+(large)#3 step:4 i:0
+#3 large sent size to small
+#3 large sent data to small
+#3 size=242 recvsize=231
+rank: 1 ready
+(small)#1 step:4 i:0
+#1 small sent size to large
+#1 small sent data to large
+#1 size=231 recvsize=242
+rank: 0 ready
+(small)#0 step:4 i:0
+#0 small sent size to large
+#0 small sent data to large
+#2 large sent size to small
+#2 large sent data to small
+#2 size=217 recvsize=231
+rank 2 finish step 4
+#0 size=231 recvsize=217
+rank 0 finish step 4
+rank 3 finish step 4
+rank: 7 ready
+(large)#7 step:4 i:1
+#7 large sent size to small
+#7 large sent data to small
+#7 size=217 recvsize=236
+rank: 6 ready
+(large)#6 step:4 i:1
+#6 large sent size to small
+rank: 9 ready
+(small)#9 step:4 i:2
+#9 small sent size to large
+#9 small sent data to large
+#9 size=219 recvsize=198
+rank 9 finish step 4
+rank: 11 ready
+(large)#11 step:4 i:2
+#11 large sent size to small
+#11 large sent data to small
+#11 size=198 recvsize=219
+rank: 5 ready
+(small)#5 step:4 i:1
+#5 small sent size to large
+#5 small sent data to large
+#5 size=236 recvsize=217
+rank 5 finish step 4
+rank: 4 ready
+(small)#4 step:4 i:1
+#4 small sent size to large
+#4 small sent data to large
+#4 size=232 recvsize=245
+rank: 8 ready
+(small)#8 step:4 i:2
+#8 small sent size to large
+#8 small sent data to large
+#8 size=222 recvsize=210
+rank 8 finish step 4
+rank: 10 ready
+(large)#10 step:4 i:2
+#10 large sent size to small
+#10 large sent data to small
+#10 size=210 recvsize=222
+rank 10 finish step 4
+rank 1 finish step 4
+rank 7 finish step 4
+#6 large sent data to small
+#6 size=245 recvsize=232
+rank 6 finish step 4
+rank 11 finish step 4
+rank 4 finish step 4
+rank: 12 ready
+(small)#12 step:4 i:3
+#12 small sent size to large
+rank: 14 ready
+(large)#14 step:4 i:3
+rank: 13 ready
+(small)#13 step:4 i:3
+#13 small sent size to large
+rank: 15 ready
+(large)#15 step:4 i:3
+#14 large sent size to small
+#14 large sent data to small
+#14 size=0 recvsize=31248597
+#12 small sent data to large
+#12 size=31248597 recvsize=0
+#15 large sent size to small
+#15 large sent data to small
+#15 size=0 recvsize=31248633
+#13 small sent data to large
+#13 size=31248633 recvsize=0
+rank 12 finish step 4
+rank 13 finish step 4
+rank 14 finish step 4
+rank: 0 ready
+(small)#0 step:8 i:0
+#0 small sent size to large
+#0 small sent data to large
+#0 size=237 recvsize=235
+rank: 1 ready
+(large)#1 step:8 i:0
+#1 large sent size to small
+#1 large sent data to small
+rank 15 finish step 4
+#1 size=235 recvsize=237
+rank: 4 ready
+(small)#4 step:8 i:2
+#4 small sent size to large
+rank: 2 ready
+(small)#2 step:8 i:1
+#2 small sent size to large
+rank: 3 ready
+(large)#3 step:8 i:1
+rank 0 finish step 8
+rank: 5 ready
+(large)#5 step:8 i:2
+#5 large sent size to small
+rank: 8 ready
+(small)#8 step:8 i:4
+#8 small sent size to large
+rank 1 finish step 8
+#4 small sent data to large
+#4 size=227 recvsize=223
+#2 small sent data to large
+#2 size=237 recvsize=245
+#3 large sent size to small
+#3 large sent data to small
+#3 size=245 recvsize=237
+rank: 12 ready
+(small)#12 step:8 i:6
+#12 small sent size to large
+#12 small sent data to large
+#8 small sent data to large
+#8 size=227 recvsize=208
+rank 8 finish step 8
+rank 4 finish step 8
+rank 2 finish step 8
+rank: 9 ready
+(large)#9 step:8 i:4
+#9 large sent size to small
+#9 large sent data to small
+#9 size=208 recvsize=227
+rank 9 finish step 8
+rank: 6 ready
+(small)#6 step:8 i:3
+#6 small sent size to large
+#6 small sent data to large
+#6 size=229 recvsize=226
+#5 large sent data to small
+#5 size=223 recvsize=227
+rank 5 finish step 8
+rank: 10 ready
+(small)#10 step:8 i:5
+#10 small sent size to large
+#10 small sent data to large
+#10 size=224 recvsize=216
+rank 3 finish step 8
+#12 size=0 recvsize=0
+rank 12 finish step 8
+rank: 13 ready
+(large)#13 step:8 i:6
+#13 large sent size to small
+#13 large sent data to small
+#13 size=0 recvsize=0
+rank 13 finish step 8
+rank: 7 ready
+(large)#7 step:8 i:3
+#7 large sent size to small
+#7 large sent data to small
+#7 size=226 recvsize=229
+rank 7 finish step 8
+rank: 11 ready
+(large)#11 step:8 i:5
+#11 large sent size to small
+#11 large sent data to small
+#11 size=216 recvsize=224
+rank 11 finish step 8
+rank 6 finish step 8
+rank 10 finish step 8
+rank: 14 ready
+(small)#14 step:8 i:7
+#14 small sent size to large
+rank: 15 ready
+(large)#15 step:8 i:7
+#14 small sent data to large
+#14 size=62497259 recvsize=0
+#15 large sent size to small
+#15 large sent data to small
+#15 size=0 recvsize=62497259
+rank 14 finish step 8
+rank 15 finish step 8
+g
+==============
+input 2000000000 type 1
+rank: 9 ready
+(large)#9 step:1 i:0
+rank: 0 ready
+(small)#0 step:1 i:0
+#0 small sent size to large
+rank: 12 ready
+(large)#12 step:1 i:0
+rank: 15 ready
+(large)#15 step:1 i:0
+rank: 7 ready
+(small)#7 step:1 i:0
+#7 small sent size to large
+rank: 11 ready
+(large)#11 step:1 i:0
+rank: 13 ready
+(large)#13 step:1 i:0
+rank: 5 ready
+(small)#5 step:1 i:0
+#5 small sent size to large
+rank: 8 ready
+(large)#8 step:1 i:0
+rank: 3 ready
+(small)#3 step:1 i:0
+#3 small sent size to large
+rank: 14 ready
+(large)#14 step:1 i:0
+rank: 1 ready
+(small)#1 step:1 i:0
+#1 small sent size to large
+rank: 4 ready
+(small)#4 step:1 i:0
+#4 small sent size to large
+rank: 10 ready
+(large)#10 step:1 i:0
+rank: 6 ready
+(small)#6 step:1 i:0
+#6 small sent size to large
+rank: 2 ready
+(small)#2 step:1 i:0
+#2 small sent size to large
+#8 large sent size to small
+#8 large sent data to small
+#8 size=0 recvsize=125000000
+#0 small sent data to large
+#0 size=125000000 recvsize=0
+#4 small sent data to large
+#4 size=125000000 recvsize=0
+#12 large sent size to small
+#12 large sent data to small
+#12 size=0 recvsize=125000000
+#2 small sent data to large
+#2 size=125000000 recvsize=0
+#10 large sent size to small
+#10 large sent data to small
+#10 size=0 recvsize=125000000
+#14 large sent size to small
+#14 large sent data to small
+#14 size=0 recvsize=125000000
+#6 small sent data to large
+#6 size=125000000 recvsize=0
+#15 large sent size to small
+#15 large sent data to small
+#15 size=0 recvsize=125000000
+#7 small sent data to large
+#7 size=125000000 recvsize=0
+#13 large sent size to small
+#13 large sent data to small
+#13 size=0 recvsize=125000000
+#5 small sent data to large
+#5 size=125000000 recvsize=0
+#9 large sent size to small
+#9 large sent data to small
+#9 size=0 recvsize=125000000
+#1 small sent data to large
+#1 size=125000000 recvsize=0
+#11 large sent size to small
+#11 large sent data to small
+#11 size=0 recvsize=125000000
+#3 small sent data to large
+#3 size=125000000 recvsize=0
+rank 0 finish step 1
+rank 4 finish step 1
+rank 2 finish step 1
+rank 6 finish step 1
+rank 7 finish step 1
+rank 5 finish step 1
+rank 1 finish step 1
+rank 3 finish step 1
+rank 8 finish step 1
+rank 14 finish step 1
+rank 10 finish step 1
+rank 12 finish step 1
+rank 15 finish step 1
+rank 11 finish step 1
+rank 9 finish step 1
+rank: 2 ready
+(small)#2 step:2 i:0
+#2 small sent size to large
+#2 small sent data to large
+#2 size=0 recvsize=0
+rank 2 finish step 2
+rank 13 finish step 1
+rank: 1 ready
+(small)#1 step:2 i:0
+#1 small sent size to large
+#1 small sent data to large
+#1 size=0 recvsize=0
+rank 1 finish step 2
+rank: 3 ready
+(small)#3 step:2 i:0
+#3 small sent size to large
+#3 small sent data to large
+#3 size=0 recvsize=0
+rank 3 finish step 2
+rank: 5 ready
+(large)#5 step:2 i:0
+#5 large sent size to small
+#5 large sent data to small
+#5 size=0 recvsize=0
+rank 5 finish step 2
+rank: 0 ready
+(small)#0 step:2 i:0
+#0 small sent size to large
+#0 small sent data to large
+#0 size=0 recvsize=0
+rank 0 finish step 2
+rank: 7 ready
+(large)#7 step:2 i:0
+#7 large sent size to small
+#7 large sent data to small
+#7 size=0 recvsize=0
+rank 7 finish step 2
+rank: 6 ready
+(large)#6 step:2 i:0
+#6 large sent size to small
+#6 large sent data to small
+#6 size=0 recvsize=0
+rank 6 finish step 2
+rank: 4 ready
+(large)#4 step:2 i:0
+#4 large sent size to small
+#4 large sent data to small
+#4 size=0 recvsize=0
+rank 4 finish step 2
+rank: 11 ready
+(small)#11 step:2 i:1
+#11 small sent size to large
+rank: 10 ready
+(small)#10 step:2 i:1
+#10 small sent size to large
+rank: 13 ready
+(large)#13 step:2 i:1
+rank: 12 ready
+(large)#12 step:2 i:1
+rank: 8 ready
+(small)#8 step:2 i:1
+#8 small sent size to large
+rank: 14 ready
+(large)#14 step:2 i:1
+rank: 9 ready
+(small)#9 step:2 i:1
+#9 small sent size to large
+rank: 15 ready
+(large)#15 step:2 i:1
+#8 small sent data to large
+#8 size=218753262 recvsize=31251664
+#12 large sent size to small
+#14 large sent size to small
+#10 small sent data to large
+#10 size=218758226 recvsize=31248106
+#13 large sent size to small
+#9 small sent data to large
+#9 size=218750062 recvsize=31251788
+#15 large sent size to small
+#11 small sent data to large
+#11 size=218759439 recvsize=31246784
+#12 large sent data to small
+#12 size=31251664 recvsize=218753262
+#14 large sent data to small
+#14 size=31248106 recvsize=218758226
+#13 large sent data to small
+#13 size=31251788 recvsize=218750062
+#15 large sent data to small
+#15 size=31246784 recvsize=218759439
+rank 10 finish step 2
+rank 8 finish step 2
+rank 9 finish step 2
+rank 11 finish step 2
+rank 12 finish step 2
+rank 13 finish step 2
+rank 15 finish step 2
+rank 14 finish step 2
+rank: 2 ready
+(large)#2 step:4 i:0
+#2 large sent size to small
+#2 large sent data to small
+#2 size=0 recvsize=0
+rank: 1 ready
+(small)#1 step:4 i:0
+#1 small sent size to large
+#1 small sent data to large
+#1 size=0 recvsize=0
+rank 1 finish step 4
+rank: 3 ready
+(large)#3 step:4 i:0
+#3 large sent size to small
+#3 large sent data to small
+#3 size=0 recvsize=0
+rank 3 finish step 4
+rank: 0 ready
+(small)#0 step:4 i:0
+#0 small sent size to large
+#0 small sent data to large
+#0 size=0 recvsize=0
+rank 0 finish step 4
+rank: 4 ready
+(small)#4 step:4 i:1
+#4 small sent size to large
+#4 small sent data to large
+#4 size=0 recvsize=0
+rank: 7 ready
+(large)#7 step:4 i:1
+#7 large sent size to small
+#7 large sent data to small
+#7 size=0 recvsize=0
+rank 7 finish step 4
+rank: 6 ready
+(large)#6 step:4 i:1
+#6 large sent size to small
+#6 large sent data to small
+#6 size=0 recvsize=0
+rank 6 finish step 4
+rank 2 finish step 4
+rank: 5 ready
+(small)#5 step:4 i:1
+#5 small sent size to large
+#5 small sent data to large
+#5 size=0 recvsize=0
+rank 5 finish step 4
+rank 4 finish step 4
+rank: 9 ready
+(small)#9 step:4 i:2
+#9 small sent size to large
+rank: 11 ready
+(large)#11 step:4 i:2
+rank: 8 ready
+(small)#8 step:4 i:2
+#8 small sent size to large
+rank: 10 ready
+(large)#10 step:4 i:2
+#11 large sent size to small
+#9 small sent data to large
+#9 size=31248271 recvsize=31246358
+#10 large sent size to small
+#8 small sent data to large
+#8 size=31255596 recvsize=31246065
+#11 large sent data to small
+#11 size=31246358 recvsize=31248271
+#10 large sent data to small
+#10 size=31246065 recvsize=31255596
+rank: 12 ready
+(small)#12 step:4 i:3
+#12 small sent size to large
+rank: 15 ready
+(large)#15 step:4 i:3
+rank: 14 ready
+(large)#14 step:4 i:3
+rank: 13 ready
+(small)#13 step:4 i:3
+#13 small sent size to large
+#14 large sent size to small
+#14 large sent data to small
+#14 size=0 recvsize=437501598
+#12 small sent data to large
+#12 size=437501598 recvsize=0
+#15 large sent size to small
+#15 large sent data to small
+#15 size=0 recvsize=437498274
+#13 small sent data to large
+#13 size=437498274 recvsize=0
+rank 12 finish step 4
+rank 13 finish step 4
+rank 11 finish step 4
+rank 8 finish step 4
+rank 10 finish step 4
+rank 9 finish step 4
+rank 14 finish step 4
+rank 15 finish step 4
+rank: 0 ready
+(small)#0 step:8 i:0
+#0 small sent size to large
+#0 small sent data to large
+#0 size=0 recvsize=0
+rank: 1 ready
+(large)#1 step:8 i:0
+#1 large sent size to small
+#1 large sent data to small
+#1 size=0 recvsize=0
+rank: 3 ready
+(large)#3 step:8 i:1
+rank: 5 ready
+(large)#5 step:8 i:2
+#5 large sent size to small
+rank: 4 ready
+(small)#4 step:8 i:2
+#4 small sent size to large
+#4 small sent data to large
+rank: 2 ready
+(small)#2 step:8 i:1
+#2 small sent size to large
+#2 small sent data to large
+#2 size=0 recvsize=0
+rank 1 finish step 8
+#3 large sent size to small
+#3 large sent data to small
+#3 size=0 recvsize=0
+rank 3 finish step 8
+rank: 7 ready
+(large)#7 step:8 i:3
+#7 large sent size to small
+#7 large sent data to small
+#7 size=0 recvsize=0
+#5 large sent data to small
+#5 size=0 recvsize=0
+rank 5 finish step 8
+rank: 12 ready
+(small)#12 step:8 i:6
+#12 small sent size to large
+#12 small sent data to large
+rank: 6 ready
+(small)#6 step:8 i:3
+#6 small sent size to large
+#6 small sent data to large
+#6 size=0 recvsize=0
+rank 0 finish step 8
+#4 size=0 recvsize=0
+rank 4 finish step 8
+rank 2 finish step 8
+rank: 13 ready
+(large)#13 step:8 i:6
+#13 large sent size to small
+#13 large sent data to small
+#13 size=0 recvsize=0
+rank 13 finish step 8
+rank 7 finish step 8
+#12 size=0 recvsize=0
+rank 12 finish step 8
+rank 6 finish step 8
+rank: 11 ready
+(large)#11 step:8 i:5
+rank: 9 ready
+(large)#9 step:8 i:4
+rank: 8 ready
+(small)#8 step:8 i:4
+#8 small sent size to large
+rank: 10 ready
+(small)#10 step:8 i:5
+#10 small sent size to large
+#8 small sent data to large
+#8 size=31245336 recvsize=31250852
+#9 large sent size to small
+#10 small sent data to large
+#10 size=31247990 recvsize=31242909
+#11 large sent size to small
+#9 large sent data to small
+#9 size=31250852 recvsize=31245336
+#11 large sent data to small
+#11 size=31242909 recvsize=31247990
+rank: 14 ready
+(small)#14 step:8 i:7
+#14 small sent size to large
+rank: 15 ready
+(large)#15 step:8 i:7
+rank 11 finish step 8
+rank 8 finish step 8
+rank 9 finish step 8
+rank 10 finish step 8
+#14 small sent data to large
+#14 size=875011718 recvsize=0
+#15 large sent size to small
+#15 large sent data to small
+#15 size=0 recvsize=875011718
+rank 14 finish step 8
+slurmstepd: error: *** JOB 8779819 ON r419 CANCELLED AT 2019-05-15T01:49:58 ***
