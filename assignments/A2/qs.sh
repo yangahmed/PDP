@@ -4,6 +4,7 @@
 #SBATCH -p node -n 16
 #SBATCH -t 3:00:00
 
+echo "new"
 module load gcc openmpi
 
 echo "=============="
