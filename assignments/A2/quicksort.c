@@ -175,6 +175,7 @@ int main(int argc, char **argv)
                 }
                 }
             }
+            free(allmedian);
         }
         // MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
         MPI_Scatter(allpivot, 1, MPI_INT, &pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
@@ -307,7 +308,6 @@ int main(int argc, char **argv)
         // fclose(output_file);
 
         free(data);
-        free(allmedian);
     }
     MPI_Finalize();
 }
