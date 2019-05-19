@@ -194,7 +194,7 @@ int main(int argc, char **argv)
                 qsort(chunk, s, sizeof(int),cmp);
                 t_end = MPI_Wtime();
                 t = t_end - t_begin;
-        printf("%f\n", t);
+                printf("#%d\tstep%d\t%f\n", rank, step, t);
 
                 free(smaller);
                 free(larger);
@@ -223,8 +223,8 @@ int main(int argc, char **argv)
                 qsort(chunk, s, sizeof(int),cmp);  
                 t_end = MPI_Wtime();
 
-t = t_end - t_begin;
-        printf("%f\n", t);
+                t = t_end - t_begin;
+                printf("#%d\tstep%d\t%f\n", rank, step, t);
 
                 free(smaller);
                 free(larger);
