@@ -115,15 +115,15 @@ int main(int argc, char **argv)
             allmedian = calloc(p, sizeof(int));
         }
         MPI_Gather(&med, 1, MPI_INT, allmedian, 1, MPI_INT, 0, MPI_COMM_WORLD);
-            for(int iii=0; iii<p; iii++)
-                printf("%d ",allmedian[iii]);
-            printf("\n");
 
        
         i = rank/groupsize; // the processor in which group
         int allpivot[p];
         if(rank == 0)
         {
+            for(int iii=0; iii<p; iii++)
+                printf("%d ",allmedian[iii]);
+            printf("\n");
             // int allpivot[p];
             if(type == 1)
             {
