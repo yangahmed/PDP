@@ -8,9 +8,5 @@ echo "2 cores"
 module load gcc openmpi
 
 echo "=============="
-echo "input 250000000 type 3"
-mpirun ./quicksort /proj/g2019005/nobackup/qsort_indata/input250000000.txt out.txt 3
-
-echo "=============="
-echo "input 125000000 type 3"
-mpirun ./quicksort /proj/g2019005/nobackup/qsort_indata/input125000000.txt out.txt 3
+echo "input 500000000 type 2"
+mpirun ./quicksort /proj/g2019005/nobackup/qsort_indata/input500000000.txt out.txt 2

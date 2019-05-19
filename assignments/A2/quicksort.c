@@ -38,6 +38,7 @@ int main(int argc, char **argv)
     int type = atoi(argv[3]);
     MPI_Status status;
     double t_begin, t_end, t;
+    double t_begin_s, t_end_s, t_s;
 
     MPI_Init(&argc, &argv);
     int n;
@@ -70,13 +71,12 @@ int main(int argc, char **argv)
             data[i] = 0;
     }
 
-    // t_begin = MPI_Wtime();
+    t_begin = MPI_Wtime();
     MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(&c, 1, MPI_INT, 0, MPI_COMM_WORLD);
     chunk = (int *)malloc(c * sizeof(int));
     MPI_Scatter(data, c, MPI_INT, chunk, c, MPI_INT, 0, MPI_COMM_WORLD);
 
-    t_begin = MPI_Wtime();
 
     if(n<p){
         s = 1;
@@ -111,6 +111,7 @@ int main(int argc, char **argv)
 
     for(step = 1; step < p; step = 2*step) //loop for log2p times till converge
     {
+        t_begin_s = MPI_Wtime();
         groupsize = p/step;
 
         c_size = s;
@@ -183,10 +184,14 @@ int main(int argc, char **argv)
         // MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
         MPI_Scatter(allpivot, 1, MPI_INT, &pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
         // printf("#%d\tpivot:%d\n",rank,pivot);
+        t_end_s = MPI_Wtime();
 
+        t_s = t_end_s - t_begin_s;
+        printf("step%d t1:%f\n", step, t_s);
 
         if(rank>=i*groupsize && rank<(i+1)*groupsize)
         {
+            t_begin_s = MPI_Wtime();
             int b = 0;
             for(b=0; b<c_size; b++)
             {
@@ -235,9 +240,11 @@ int main(int argc, char **argv)
                 free(smaller);
                 free(larger);
                 free(recv);
+                t_end_s = MPI_Wtime();
             }
             else
             {
+                t_begin_s = MPI_Wtime();
                 size = b;
                 remain = c_size - b;
                 // t_begin = MPI_Wtime();
@@ -267,13 +274,15 @@ int main(int argc, char **argv)
                 free(smaller);
                 free(larger);
                 free(recv);
+                t_end_s = MPI_Wtime();
             }
         }
-        
+                t_s = t_end_s - t_begin_s;
+        printf("step%d t2:%f\n", step, t_s);
     }
 
     // printf("#%d\tsize=%d\n", rank, c_size);
-
+t_begin_s = MPI_Wtime();
     if(rank == 0)
     {
         data = (int *)malloc((n>p?n:p)*sizeof(int));
@@ -292,11 +301,14 @@ int main(int argc, char **argv)
     }
     MPI_Gatherv(chunk,c_size,MPI_INT,data,chunksize,displs,MPI_INT,0,MPI_COMM_WORLD);
     free(chunk);
+    t_end_s = MPI_Wtime();
 
     t_end = MPI_Wtime();
 
     if (rank == 0) 
     {
+        t_s = t_end_s - t_begin_s;
+        printf("t3:%f\n", t_s);
         t = t_end - t_begin;
         printf("%f\n", t);
 
