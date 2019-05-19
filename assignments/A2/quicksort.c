@@ -14,15 +14,19 @@ int median(int size, int *arr)
     /*calculate the median of an sorted array*/
     int m = size/2;
     int median;
-    if(size%2 == 0)
-    {
-        median = (arr[m]+arr[m-1])/2.0;
-    }
-    else
-    {
-        median = arr[m];
-    }
-    // median = arr[m];
+    // if(size%2 == 0)
+    // {
+    //     median = (arr[m]+arr[m-1])/2.0;
+    // }
+    // else
+    // {
+    //     median = arr[m];
+    // }
+
+    median = arr[m]; 
+    /* because there are some large number in the input file, if we do plus then divide by 2 will
+    get error, since the algorithm send out the numbers which smaller than the pivot, so we can 
+    simplely assume the smaller one in the middle two numbers as median*/
     return median;
 }
 
