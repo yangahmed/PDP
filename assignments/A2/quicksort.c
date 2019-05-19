@@ -167,10 +167,13 @@ int main(int argc, char **argv)
                 }
                 }
             }
+            for(int iii=0; iii<p; iii++)
+                printf("%d ",allpivot[iii]);
+            printf("\n");
         }
         // MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
         MPI_Scatter(allpivot, 1, MPI_INT, &pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        printf("#d\tpivot:%d\n",rank,pivot);
+        // printf("#%d\tpivot:%d\n",rank,pivot);
 
 
         if(rank>=i*groupsize && rank<(i+1)*groupsize)
