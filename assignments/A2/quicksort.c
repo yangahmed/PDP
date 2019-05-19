@@ -110,6 +110,7 @@ int main(int argc, char **argv)
     for(step = 1; step < p; step = 2*step) //loop for log2p times till converge
     {
         groupsize = p/step;
+        t_begin = MPI_Wtime();
 
         c_size = s;
         med = median(c_size, chunk);
@@ -130,7 +131,7 @@ int main(int argc, char **argv)
             //     printf("%d ",allmedian[iii]);
             // printf("\n");
             // int allpivot[p];
-            t_begin = MPI_Wtime();
+            
             if(type == 1)
             {
                 for(int ii=0; ii<p/groupsize; ii++){
@@ -177,9 +178,6 @@ int main(int argc, char **argv)
                 }
             }
             free(allmedian);
-            t_end = MPI_Wtime();
-                t = t_end - t_begin;
-                printf("#%d\tstep%d\tsize:%d\tt:%f\n", rank, step,s, t);
         }
         // MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
         MPI_Scatter(allpivot, 1, MPI_INT, &pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
@@ -270,6 +268,10 @@ int main(int argc, char **argv)
                 free(recv);
             }
         }
+        
+            t_end = MPI_Wtime();
+                t = t_end - t_begin;
+                printf("#%d\tstep%d\tt:%f\n", rank, step, t);
     }
 
     // printf("#%d\tsize=%d\n", rank, c_size);
