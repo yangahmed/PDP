@@ -120,34 +120,56 @@ int main(int argc, char **argv)
         i = rank/groupsize; // the processor in which group
         if(rank == 0)
         {
+            int allpivot[p];
             if(type == 1)
             {
-                pivot = allmedian[i*groupsize];
+                for(int ii=0; ii<p/groupsize; ii++){
+                    for(int jj=0; jj<groupsize; jj++)
+                        allpivot[ii*groupsize+jj] = allmedian[ii*groupsize];
+                }
             }
             else
             {
-                int groupmedians[groupsize];
-                for(int j=0; j<groupsize; j++)
-                {
-                    groupmedians[j] = allmedian[i*groupsize+j];
+                int groupmedians[p/groupsize][groupsize];
+                // for(int j=0; j<groupsize; j++)
+                // {
+                //     groupmedians[j] = allmedian[i*groupsize+j];
+                // }
+                for(int ii=0; ii<p/groupsize; ii++){
+                    for(int jj=0; jj<groupsize; jj++)
+                        groupmedians[ii][jj] = allmedian[ii*groupsize+jj];
                 }
 
                 if(type == 2)
                 {
-                    pivot = median(groupsize, groupmedians);
+                    // pivot = median(groupsize, groupmedians);
+                for(int ii=0; ii<p/groupsize; ii++){
+                    for(int jj=0; jj<groupsize; jj++)
+                        allpivot[ii*groupsize+jj] = median(groupsize, groupmedians[ii]);
+                }
                 }
                 if(type == 3)
                 {
+                    // int sum = 0;
+                    // for(int jj=0; jj<groupsize; jj++)
+                    // {
+                    //     sum += groupmedians[jj];
+                    // }
+                    // pivot = sum/groupsize;
+                for(int ii=0; ii<p/groupsize; ii++){
                     int sum = 0;
-                    for(int jj=0; jj<groupsize; jj++)
-                    {
+                    for(int jj=0; jj<groupsize; jj++){
                         sum += groupmedians[jj];
                     }
-                    pivot = sum/groupsize;
+                    for(int jj=0; jj<groupsize; jj++)
+                        allpivot[ii*groupsize+jj] = sum/groupsize;
+                }
                 }
             }
         }
-        MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
+        // MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
+        MPI_Scatter(allpivot, 1, MPI_INT, pivot, 1, MPI_INT, 0, MPI_COMM_WORLD)
+        printf("#d\tpivot:%d\n",rank,pivot);
 
 
         if(rank>=i*groupsize && rank<(i+1)*groupsize)
