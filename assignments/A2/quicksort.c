@@ -76,6 +76,8 @@ int main(int argc, char **argv)
     chunk = (int *)malloc(c * sizeof(int));
     MPI_Scatter(data, c, MPI_INT, chunk, c, MPI_INT, 0, MPI_COMM_WORLD);
 
+    t_begin = MPI_Wtime();
+
     if(n<p){
         s = 1;
     }
@@ -110,7 +112,6 @@ int main(int argc, char **argv)
     for(step = 1; step < p; step = 2*step) //loop for log2p times till converge
     {
         groupsize = p/step;
-        t_begin = MPI_Wtime();
 
         c_size = s;
         med = median(c_size, chunk);
@@ -269,9 +270,6 @@ int main(int argc, char **argv)
             }
         }
         
-            t_end = MPI_Wtime();
-                t = t_end - t_begin;
-                printf("#%d\tstep%d\tt:%f\n", rank, step, t);
     }
 
     // printf("#%d\tsize=%d\n", rank, c_size);
@@ -295,12 +293,12 @@ int main(int argc, char **argv)
     MPI_Gatherv(chunk,c_size,MPI_INT,data,chunksize,displs,MPI_INT,0,MPI_COMM_WORLD);
     free(chunk);
 
-    // t_end = MPI_Wtime();
+    t_end = MPI_Wtime();
 
     if (rank == 0) 
     {
-        // t = t_end - t_begin;
-        // printf("%f\n", t);
+        t = t_end - t_begin;
+        printf("%f\n", t);
 
         // FILE *output_file = fopen(output, "w+");
         // if (!output_file)
