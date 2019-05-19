@@ -100,6 +100,10 @@ int main(int argc, char **argv)
     
     qsort(chunk, s, sizeof(int),cmp);
 
+    for(int ii=0; ii<s; ii++)
+        printf("%d ", chunk[ii]);
+    printf("\n");
+
 
 
 
@@ -109,7 +113,7 @@ int main(int argc, char **argv)
 
         c_size = s;
         med = median(c_size, chunk);
-        printf("#%d %d %d %d\n", rank, c_size, chunk[0], med);
+        printf("#%d %d %d\n", rank, c_size, med);
         int *allmedian = 0;
         if(rank == 0)
         {
@@ -122,9 +126,9 @@ int main(int argc, char **argv)
         int allpivot[p];
         if(rank == 0)
         {
-            for(int iii=0; iii<p; iii++)
-                printf("%d ",allmedian[iii]);
-            printf("\n");
+            // for(int iii=0; iii<p; iii++)
+            //     printf("%d ",allmedian[iii]);
+            // printf("\n");
             // int allpivot[p];
             if(type == 1)
             {
@@ -177,7 +181,7 @@ int main(int argc, char **argv)
         }
         // MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
         MPI_Scatter(allpivot, 1, MPI_INT, &pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        printf("#%d\tpivot:%d\n",rank,pivot);
+        // printf("#%d\tpivot:%d\n",rank,pivot);
 
 
         if(rank>=i*groupsize && rank<(i+1)*groupsize)
