@@ -160,7 +160,7 @@ int main(int argc, char **argv)
                 for(int ii=0; ii<p/groupsize; ii++){
                     int sum = 0;
                     for(int jj=0; jj<groupsize; jj++){
-                        sum += groupmedians[jj];
+                        sum += groupmedians[ii][jj];
                     }
                     for(int jj=0; jj<groupsize; jj++)
                         allpivot[ii*groupsize+jj] = sum/groupsize;
