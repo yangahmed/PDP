@@ -1,0 +1,391 @@
+16 cores
+==============
+input 125000000 type 1
+#d	pivot:0
+#d	pivot:1
+#d	pivot:2
+#d	pivot:3
+#d	pivot:4
+#d	pivot:5
+#d	pivot:6
+#d	pivot:7
+#d	pivot:8
+#d	pivot:9
+#d	pivot:10
+#d	pivot:11
+#d	pivot:12
+#d	pivot:13
+#d	pivot:14
+#d	pivot:15
+#4	step1	size:0	t:0.000001
+#6	step1	size:0	t:0.000001
+#0	step1	size:0	t:0.000000
+#2	step1	size:0	t:0.000001
+#5	step1	size:0	t:0.000001
+#7	step1	size:0	t:0.000001
+#1	step1	size:0	t:0.000000
+#3	step1	size:0	t:0.000000
+#12	step1	size:15625000	t:0.879333
+#14	step1	size:15625000	t:0.879994
+#8	step1	size:15625000	t:0.880489
+#10	step1	size:15625000	t:0.879988
+#15	step1	size:15625000	t:0.880117
+#13	step1	size:15625000	t:0.880885
+#9	step1	size:15625000	t:0.880731
+#11	step1	size:15625000	t:0.880886
+#d	pivot:6
+#6	step2	size:0	t:0.000000
+#d	pivot:7
+#7	step2	size:0	t:0.000000
+#d	pivot:0
+#0	step2	size:0	t:0.000000
+#d	pivot:1
+#1	step2	size:0	t:0.000000
+#d	pivot:10
+#d	pivot:2
+#2	step2	size:0	t:0.000000
+#d	pivot:4
+#4	step2	size:0	t:0.000000
+#d	pivot:5
+#5	step2	size:0	t:0.000000
+#d	pivot:14
+#d	pivot:13
+#d	pivot:8
+#d	pivot:9
+#d	pivot:3
+#3	step2	size:0	t:0.000000
+#d	pivot:15
+#d	pivot:12
+#d	pivot:11
+#10	step2	size:0	t:0.000001
+#8	step2	size:0	t:0.000001
+#11	step2	size:0	t:0.000001
+#9	step2	size:0	t:0.000000
+#14	step2	size:31250000	t:1.800245
+#12	step2	size:31250000	t:1.800400
+#15	step2	size:31250000	t:1.799997
+#13	step2	size:31250000	t:1.800630
+#d	pivot:14
+#d	pivot:6
+#6	step4	size:0	t:0.000000
+#d	pivot:7
+#7	step4	size:0	t:0.000000
+#d	pivot:0
+#0	step4	size:0	t:0.000000
+#d	pivot:1
+#1	step4	size:0	t:0.000000
+#d	pivot:8
+#8	step4	size:0	t:0.000000
+#d	pivot:2
+#2	step4	size:0	t:0.000000
+#d	pivot:4
+#4	step4	size:0	t:0.000000
+#d	pivot:5
+#5	step4	size:0	t:0.000000
+#d	pivot:9
+#9	step4	size:0	t:0.000000
+#d	pivot:15
+#d	pivot:10
+#10	step4	size:0	t:0.000000
+#d	pivot:11
+#11	step4	size:0	t:0.000000
+#d	pivot:3
+#3	step4	size:0	t:0.000000
+#d	pivot:12
+#d	pivot:13
+#12	step4	size:0	t:0.000001
+#13	step4	size:0	t:0.000001
+#14	step4	size:62500000	t:3.699455
+#15	step4	size:62500000	t:3.703760
+#d	pivot:12
+#12	step8	size:0	t:0.000000
+#d	pivot:13
+#13	step8	size:0	t:0.000000
+#d	pivot:6
+#6	step8	size:0	t:0.000000
+#d	pivot:7
+#7	step8	size:0	t:0.000000
+#d	pivot:0
+#0	step8	size:0	t:0.000000
+#d	pivot:1
+#1	step8	size:0	t:0.000000
+#d	pivot:8
+#8	step8	size:0	t:0.000000
+#d	pivot:2
+#2	step8	size:0	t:0.000000
+#d	pivot:4
+#4	step8	size:0	t:0.000001
+#d	pivot:5
+#5	step8	size:0	t:0.000001
+#d	pivot:9
+#9	step8	size:0	t:0.000000
+#d	pivot:14
+#d	pivot:10
+#10	step8	size:0	t:0.000000
+#d	pivot:11
+#11	step8	size:0	t:0.000000
+#d	pivot:3
+#3	step8	size:0	t:0.000000
+#d	pivot:15
+#14	step8	size:0	t:0.000001
+#15	step8	size:125000000	t:7.591147
+==============
+input 125000000 type 2
+#d	pivot:0
+#d	pivot:1
+#d	pivot:2
+#d	pivot:3
+#d	pivot:4
+#d	pivot:5
+#d	pivot:6
+#d	pivot:7
+#d	pivot:8
+#d	pivot:9
+#d	pivot:10
+#d	pivot:11
+#d	pivot:12
+#d	pivot:13
+#d	pivot:14
+#d	pivot:15
+#7	step1	size:1440	t:0.000054
+#1	step1	size:1468	t:0.000052
+#5	step1	size:1432	t:0.000051
+#3	step1	size:1478	t:0.000050
+#6	step1	size:1479	t:0.000056
+#0	step1	size:1503	t:0.000059
+#2	step1	size:1463	t:0.000054
+#4	step1	size:1473	t:0.000052
+#11	step1	size:15623522	t:0.874233
+#12	step1	size:15623527	t:0.874748
+#9	step1	size:15623532	t:0.899881
+#8	step1	size:15623497	t:0.897963
+#15	step1	size:15623560	t:0.899789
+#10	step1	size:15623537	t:0.899414
+#13	step1	size:15623568	t:0.900013
+#14	step1	size:15623521	t:0.900107
+#d	pivot:6
+#d	pivot:7
+#d	pivot:0
+#d	pivot:5
+#d	pivot:2
+#d	pivot:1
+#d	pivot:3
+#d	pivot:8
+#d	pivot:9
+#d	pivot:12
+#d	pivot:15
+#d	pivot:4
+#d	pivot:11
+#d	pivot:10
+#d	pivot:13
+#d	pivot:14
+#5	step2	size:1466	t:0.000046
+#2	step2	size:1405	t:0.000045
+#1	step2	size:1434	t:0.000049
+#3	step2	size:1405	t:0.000047
+#4	step2	size:1509	t:0.000049
+#6	step2	size:1537	t:0.000050
+#7	step2	size:1513	t:0.000050
+#0	step2	size:1467	t:0.000047
+#8	step2	size:0	t:0.000001
+#9	step2	size:0	t:0.000001
+#11	step2	size:0	t:0.000001
+#10	step2	size:0	t:0.000000
+#14	step2	size:31247058	t:1.796521
+#12	step2	size:31247024	t:1.843811
+#13	step2	size:31247100	t:1.885212
+#15	step2	size:31247082	t:1.884246
+#d	pivot:12
+#d	pivot:4
+#4	step4	size:1521	t:0.000051
+#d	pivot:6
+#6	step4	size:1525	t:0.000052
+#d	pivot:7
+#d	pivot:10
+#10	step4	size:0	t:0.000001
+#d	pivot:5
+#d	pivot:2
+#2	step4	size:1441	t:0.000046
+#d	pivot:1
+#1	step4	size:1456	t:0.000049
+#d	pivot:0
+#0	step4	size:1431	t:0.000048
+#d	pivot:8
+#8	step4	size:0	t:0.000000
+#d	pivot:14
+#d	pivot:13
+#d	pivot:3
+#3	step4	size:1383	t:0.000046
+#d	pivot:9
+#9	step4	size:0	t:0.000000
+#d	pivot:11
+#11	step4	size:0	t:0.000000
+#d	pivot:15
+#7	step4	size:1487	t:0.000051
+#5	step4	size:1492	t:0.000050
+#12	step4	size:0	t:0.000001
+#13	step4	size:0	t:0.000001
+#15	step4	size:62494182	t:3.701140
+#14	step4	size:62494082	t:3.795680
+#d	pivot:11
+#11	step8	size:0	t:0.000000
+#d	pivot:5
+#d	pivot:4
+#d	pivot:6
+#6	step8	size:1510	t:0.000048
+#d	pivot:13
+#13	step8	size:0	t:0.000000
+#d	pivot:10
+#10	step8	size:0	t:0.000000
+#d	pivot:7
+#7	step8	size:1502	t:0.000052
+#d	pivot:2
+#2	step8	size:1418	t:0.000047
+#d	pivot:1
+#1	step8	size:1446	t:0.000047
+#d	pivot:0
+#0	step8	size:1441	t:0.000047
+#d	pivot:8
+#8	step8	size:0	t:0.000001
+#d	pivot:15
+#d	pivot:12
+#12	step8	size:0	t:0.000000
+#d	pivot:3
+#3	step8	size:1406	t:0.000045
+#d	pivot:9
+#9	step8	size:0	t:0.000000
+#d	pivot:14
+#5	step8	size:1503	t:0.000051
+#4	step8	size:1510	t:0.000047
+#14	step8	size:0	t:0.000001
+#15	step8	size:124988264	t:7.814531
+==============
+input 125000000 type 3
+#d	pivot:0
+#d	pivot:1
+#d	pivot:2
+#d	pivot:3
+#d	pivot:4
+#d	pivot:5
+#d	pivot:6
+#d	pivot:7
+#d	pivot:8
+#d	pivot:9
+#d	pivot:10
+#d	pivot:11
+#d	pivot:12
+#d	pivot:13
+#d	pivot:14
+#d	pivot:15
+#1	step1	size:475	t:0.000018
+#0	step1	size:440	t:0.000021
+#4	step1	size:476	t:0.000020
+#2	step1	size:443	t:0.000016
+#6	step1	size:459	t:0.000017
+#5	step1	size:446	t:0.000016
+#3	step1	size:471	t:0.000017
+#7	step1	size:448	t:0.000016
+#9	step1	size:15624525	t:0.874125
+#12	step1	size:15624524	t:0.875027
+#14	step1	size:15624541	t:0.875553
+#10	step1	size:15624557	t:0.898147
+#8	step1	size:15624560	t:0.898221
+#11	step1	size:15624529	t:0.899962
+#15	step1	size:15624552	t:0.899631
+#13	step1	size:15624554	t:0.903524
+#d	pivot:1
+#d	pivot:11
+#d	pivot:4
+#d	pivot:5
+#d	pivot:0
+#d	pivot:6
+#d	pivot:2
+#d	pivot:3
+#3	#d	pivot:10
+#d	pivot:7
+#7	step2	size:436	t:0.000015
+#d	pivot:14
+#d	pivot:8
+#d	pivot:9
+#d	pivot:15
+#d	pivot:12
+#d	pivot:13
+#1	step2	size:451	t:0.000015
+#4	step2	size:447	t:0.000015
+#5	step2	size:470	t:0.000015
+#0	step2	size:469	t:0.000016
+#6	step2	size:474	t:0.000016
+#2	step2	size:428	t:0.000014
+step2	size:483	t:0.000015
+#10	step2	size:436	t:0.000018
+#8	step2	size:487	t:0.000017
+#11	step2	size:416	t:0.000015
+#9	step2	size:446	t:0.000016
+#12	step2	size:31248597	t:1.799224
+#14	step2	size:31248662	t:1.799744
+#15	step2	size:31248665	t:1.885087
+#13	step2	size:31248633	t:1.893831
+#d	pivot:9
+#9	step4	size:425	t:0.000015
+#d	pivot:15
+#d	pivot:8
+#8	step4	size:475	t:0.000016
+#d	pivot:1
+#1	step4	size:462	t:0.000017
+#d	pivot:4
+#4	step4	size:460	t:0.000015
+#d	pivot:5
+#d	pivot:0
+#0	step4	size:455	t:0.000016
+#d	pivot:6
+#6	step4	size:461	t:0.000015
+#d	pivot:2
+#2	step4	size:442	t:0.000014
+#d	pivot:3
+#3	step4	size:472	t:0.000016
+#d	pivot:7
+#d	pivot:12
+#d	pivot:10
+#10	step4	size:448	t:0.000015
+#d	pivot:11
+#11	step4	size:437	t:0.000014
+#d	pivot:14
+#d	pivot:13
+#5	step4	size:451	t:0.000015
+#7	step4	size:455	t:0.000015
+#12	step4	size:0	t:0.000001
+#13	step4	size:0	t:0.000001
+#14	step4	size:62497259	t:3.795433
+#15	step4	size:62497298	t:3.796914
+#d	pivot:13
+#13	step8	size:0	t:0.000001
+#d	pivot:9
+#9	step8	size:444	t:0.000015
+#d	pivot:14
+#d	pivot:8
+#8	step8	size:456	t:0.000015
+#d	pivot:1
+#1	step8	size:464	t:0.000015
+#d	pivot:4
+#4	step8#d	pivot:12
+#12	step8	size:0	t:0.000000
+#d	pivot:0
+#0	step8	size:453	t:0.000014
+#d	pivot:6
+#6	step8	size:458	t:0.000015
+#d	pivot:2
+#2	step8	size:450	t:0.000015
+#d	pivot:3
+#3	step8	size:464	t:0.000015
+#d	pivot:5
+#5	step8	size:455	t:0.000017
+#d	pivot:7
+#7	step8	size:458	t:0.000014
+#d	pivot:10
+#10	step8	size:440	t:0.000015
+#d	pivot:11
+#11	step8	size:445	t:0.000015
+#d	pivot:15
+	size:456	t:0.000017
+#14	step8	size:0	t:0.000001
+#15	step8	size:124994557	t:7.810558
