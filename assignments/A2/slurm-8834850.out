@@ -10,3 +10,7 @@ input 2000000000 type 3
 79.245657
 ==============
 backwards 2000000000 type 1
+94.443068
+==============
+backwards 2000000000 type 2
+slurmstepd: error: *** JOB 8834850 ON r479 CANCELLED AT 2019-05-19T16:24:07 ***
