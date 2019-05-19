@@ -14,14 +14,15 @@ int median(int size, int *arr)
     /*calculate the median of an sorted array*/
     int m = size/2;
     int median;
-    if(size%2 == 0)
-    {
-        median = (arr[m]+arr[m-1])/2;
-    }
-    else
-    {
-        median = arr[m];
-    }
+    // if(size%2 == 0)
+    // {
+    //     median = (arr[m]+arr[m-1])/2;
+    // }
+    // else
+    // {
+    //     median = arr[m];
+    // }
+    median = arr[m];
     return median;
 }
 
