@@ -118,9 +118,10 @@ int main(int argc, char **argv)
 
        
         i = rank/groupsize; // the processor in which group
+        int allpivot[p];
         if(rank == 0)
         {
-            int allpivot[p];
+            // int allpivot[p];
             if(type == 1)
             {
                 for(int ii=0; ii<p/groupsize; ii++){
@@ -168,7 +169,7 @@ int main(int argc, char **argv)
             }
         }
         // MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        MPI_Scatter(allpivot, 1, MPI_INT, pivot, 1, MPI_INT, 0, MPI_COMM_WORLD)
+        MPI_Scatter(allpivot, 1, MPI_INT, &pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
         printf("#d\tpivot:%d\n",rank,pivot);
 
 
