@@ -72,6 +72,7 @@ int main(int argc, char **argv)
     }
 
     t_begin = MPI_Wtime();
+    t_begin_s = MPI_Wtime();
     MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(&c, 1, MPI_INT, 0, MPI_COMM_WORLD);
     chunk = (int *)malloc(c * sizeof(int));
@@ -106,8 +107,9 @@ int main(int argc, char **argv)
     }
     
     qsort(chunk, s, sizeof(int),cmp);
-
-
+    t_end_s = MPI_Wtime();
+        t_s = t_end_s - t_begin_s;
+        printf("t1:%f\n", t_s);
 
     for(step = 1; step < p; step = 2*step) //loop for log2p times till converge
     {
@@ -187,7 +189,7 @@ int main(int argc, char **argv)
         t_end_s = MPI_Wtime();
 
         t_s = t_end_s - t_begin_s;
-        printf("step%d t1:%f\n", step, t_s);
+        printf("step%d t2:%f\n", step, t_s);
 
         if(rank>=i*groupsize && rank<(i+1)*groupsize)
         {
@@ -278,7 +280,7 @@ int main(int argc, char **argv)
             }
         }
                 t_s = t_end_s - t_begin_s;
-        printf("step%d t2:%f\n", step, t_s);
+        printf("step%d t3:%f\n", step, t_s);
     }
 
     // printf("#%d\tsize=%d\n", rank, c_size);
@@ -308,7 +310,7 @@ t_begin_s = MPI_Wtime();
     if (rank == 0) 
     {
         t_s = t_end_s - t_begin_s;
-        printf("t3:%f\n", t_s);
+        printf("t4:%f\n", t_s);
         t = t_end - t_begin;
         printf("%f\n", t);
 
