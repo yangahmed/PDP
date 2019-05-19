@@ -105,11 +105,6 @@ int main(int argc, char **argv)
     
     qsort(chunk, s, sizeof(int),cmp);
 
-    for(int ii=0; ii<s; ii++)
-        printf("%d ", chunk[ii]);
-    printf("\n");
-
-
 
 
     for(step = 1; step < p; step = 2*step) //loop for log2p times till converge
