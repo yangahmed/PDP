@@ -109,6 +109,7 @@ int main(int argc, char **argv)
 
         c_size = s;
         med = median(c_size, chunk);
+        printf("#%d %d\n", rank, med);
         int *allmedian = 0;
         if(rank == 0)
         {
