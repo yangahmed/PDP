@@ -14,15 +14,15 @@ int median(int size, int *arr)
     /*calculate the median of an sorted array*/
     int m = size/2;
     int median;
-    // if(size%2 == 0)
-    // {
-    //     median = (arr[m]+arr[m-1])/2;
-    // }
-    // else
-    // {
-    //     median = arr[m];
-    // }
-    median = arr[m];
+    if(size%2 == 0)
+    {
+        median = (arr[m]+arr[m-1])/2.0;
+    }
+    else
+    {
+        median = arr[m];
+    }
+    // median = arr[m];
     return median;
 }
 
@@ -114,7 +114,7 @@ int main(int argc, char **argv)
 
         c_size = s;
         med = median(c_size, chunk);
-        printf("#%d %d %d\n", rank, c_size, med);
+        printf("#%d %d\n", rank, med);
         int *allmedian = 0;
         if(rank == 0)
         {
@@ -176,13 +176,10 @@ int main(int argc, char **argv)
                 }
                 }
             }
-            for(int iii=0; iii<p; iii++)
-                printf("%d ",allpivot[iii]);
-            printf("\n");
         }
         // MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
         MPI_Scatter(allpivot, 1, MPI_INT, &pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        // printf("#%d\tpivot:%d\n",rank,pivot);
+        printf("#%d\tpivot:%d\n",rank,pivot);
 
 
         if(rank>=i*groupsize && rank<(i+1)*groupsize)
