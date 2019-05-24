@@ -185,7 +185,7 @@ int main(int argc, char **argv) {
             return -1;
         }
         for(int t=0; t<n*n; t++) {
-            fprintf(output_file, "%f.6 ", C_all[t]);
+            fprintf(output_file, "%.6f ", C_all[t]);
         }
         free(C_all);
     }
