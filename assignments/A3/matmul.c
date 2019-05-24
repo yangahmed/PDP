@@ -82,13 +82,13 @@ int main(int argc, char **argv) {
         fclose(input_file);
     }
 
-    MPI_Bcast(n, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
-    if(n%root_p != 0) {
+    if(n%p_root != 0) {
         printf("Error: n is not divisible\n");
         return -1;
     }
-    n_local = n/root_p;
+    n_local = n/p_root;
     size = n_local*n_local;
     A = (float *)malloc(size*sizeof(float));
     B = (float *)malloc(size*sizeof(float));
@@ -97,8 +97,8 @@ int main(int argc, char **argv) {
     buf_B = (float *)malloc(size*sizeof(float));
 
     if(rank == 0) {
-        scatter(*A_all, A, n, p_root, 111);
-        scatter(*B_all, B, n, p_root, 222);
+        scatter(A_all, A, n, p_root, 111);
+        scatter(B_all, B, n, p_root, 222);
         free(A_all);
         free(B_all);
     } else {
@@ -154,7 +154,7 @@ int main(int argc, char **argv) {
         free(C);
     } else {
         C_all = (float *)malloc(n*n*sizeof(float));
-        int* temp = (float *)calloc(size,sizeof(float));
+        float* temp = (float *)calloc(size,sizeof(float));
 
         for(int i=0; i<p_root; i++) {
             for(int j=0; j<p_root; j++) {
