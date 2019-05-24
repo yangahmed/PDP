@@ -10,10 +10,13 @@ void scatter(float* matrix, float* mat_local, int n, int p_root, int tag) {
 
     for(int i=0; i<p_root; i++) {
         for(int j=0; j<p_root; j++) {
-            for(int p=0; p<n_local; p++) {
-                for(int q=0; q<n_local; q++) {
-                    temp[p*n_local+q] = matrix[i*n_local*n+j*n_local+q];
+            int ii = i*n_local*n;
+            int jj = j*n_local;
+            for(int k=0; k<n_local; k++) {
+                for(int l=0; l<n_local; l++) {
+                    temp[k*n_local+l] = matrix[ii+jj+l];
                 }
+                ii += n;
             }
 
             if(i==0 && j==0) {
@@ -108,6 +111,13 @@ int main(int argc, char **argv) {
         MPI_Recv(B, size, MPI_FLOAT, 0, 222, MPI_COMM_WORLD, &status);
     }
 
+    // for(int ii=0; ii<n_local; ii++) {
+    //     for(int jj=0; jj<n_local; jj++){
+    //         printf("(#%d)%f ", rank, A[ii*n_local+jj]);
+    //     }
+    //     printf("\n");
+    // }
+
     MPI_Barrier(MPI_COMM_WORLD);
     t_begin = MPI_Wtime();
 
@@ -156,22 +166,32 @@ int main(int argc, char **argv) {
         free(C);
     } else {
         C_all = (float *)malloc(n*n*sizeof(float));
-        float* temp = (float *)calloc(size,sizeof(float));
+        float* temp = (float *)calloc(size, sizeof(float));
+
+    // for(int ii=0; ii<n_local; ii++) {
+    //     for(int jj=0; jj<n_local; jj++){
+    //         printf("%f ", C[ii*n_local+jj]);
+    //     }
+    //     printf("\n");
+    // }
 
         for(int i=0; i<p_root; i++) {
             for(int j=0; j<p_root; j++) {
                 memset(temp, 0, sizeof(temp));
                 if(i==0 && j==0) {
-                    memcpy(temp, C, size);
+                    memcpy(temp, C, size*sizeof(float));
                     free(C);
                 } else {
                     MPI_Recv(temp, size, MPI_FLOAT, i*p_root+j, 555, MPI_COMM_WORLD, &status);
                 }
 
-                for(int ii=0; ii<n_local; ii++) {
-                    for(int jj=0; jj<n_local; jj++) {
-                        C_all[i*n_local*n+j*n_local+jj] = temp[ii*n_local+jj];
+                int ii = i*n_local*n;
+                int jj = j*n_local;
+                for(int k=0; k<n_local; k++) {
+                    for(int l=0; l<n_local; l++) {
+                        C_all[ii+jj+l] = temp[k*n_local+l];
                     }
+                    ii += n;
                 }
             }
         }
