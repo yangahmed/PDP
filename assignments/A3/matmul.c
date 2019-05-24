@@ -102,6 +102,8 @@ int main(int argc, char **argv) {
     buf_A = (float *)malloc(size*sizeof(float));
     buf_B = (float *)malloc(size*sizeof(float));
 
+    t_begin = MPI_Wtime();
+
     if(rank == 0) {
         scatter(A_all, A, n, p_root, 111);
         scatter(B_all, B, n, p_root, 222);
@@ -120,7 +122,7 @@ int main(int argc, char **argv) {
     // }
 
     MPI_Barrier(MPI_COMM_WORLD);
-    t_begin = MPI_Wtime();
+    // t_begin = MPI_Wtime();
 
     myrow = rank/p_root;
     mycol = rank - myrow*p_root;
@@ -159,7 +161,7 @@ int main(int argc, char **argv) {
     free(B);
     free(buf_A);
     free(buf_B);
-    t_end = MPI_Wtime();
+    // t_end = MPI_Wtime();
 
     /* gather */
     if(rank != 0) {
@@ -197,6 +199,11 @@ int main(int argc, char **argv) {
             }
         }
         free(temp);
+    }
+
+    t_end = MPI_Wtime();
+
+    if(rank == 0) {
 
         t = t_end - t_begin;
         printf("%f\n", t);
