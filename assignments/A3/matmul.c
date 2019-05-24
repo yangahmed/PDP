@@ -32,11 +32,13 @@ int get_rank(int row, int col, int p_root) {
 }
 
 void local_matmul(int n, float* A, float* B, float* C) {
+    float* temp = (float *)calloc(n*n, sizeof(float));
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
             for(int k=0; k<n; k++){
-                C[i*n+j] += A[i*n+k]*B[k*n+j];
+                temp[i*n+j] += A[i*n+k]*B[k*n+j];
             }
+            C[i*n+j] += temp[i*n+j];
         }
     }
 }
@@ -184,8 +186,11 @@ int main(int argc, char **argv) {
             printf("Error: failed to open output file\n");
             return -1;
         }
-        for(int t=0; t<n*n; t++) {
-            fprintf(output_file, "%.6f ", C_all[t]);
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<n; j++) {
+                fprintf(output_file, "%.6f ", C_all[i*n+j]);
+            }
+            fprintf(output_file, "\n");
         }
         free(C_all);
     }
