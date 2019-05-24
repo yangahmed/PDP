@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
     float *A_all, *B_all, *C_all;
     float *buf_A, *buf_B;
     int myrow, mycol;
-    int t_begin, t_end, t;
+    double t_begin, t_end, t;
 
     p_root = sqrt(p);
     if(p != p_root*p_root) {
@@ -198,7 +198,7 @@ int main(int argc, char **argv) {
         }
         free(temp);
 
-        t = t_begin - t_end;
+        t = t_end - t_begin;
         printf("%f\n", t);
 
         // FILE *output_file = fopen(output, "w+");
