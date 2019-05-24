@@ -14,14 +14,19 @@ int median(int size, int *arr)
     /*calculate the median of an sorted array*/
     int m = size/2;
     int median;
-    if(size%2 == 0)
-    {
-        median = (arr[m]+arr[m-1])/2;
-    }
-    else
-    {
-        median = arr[m];
-    }
+    // if(size%2 == 0)
+    // {
+    //     median = (arr[m]+arr[m-1])/2.0;
+    // }
+    // else
+    // {
+    //     median = arr[m];
+    // }
+
+    median = arr[m]; 
+    /* because there are some large number in the input file, if we do plus then divide by 2 will
+    get error, since the algorithm send out the numbers which smaller than the pivot, so we can 
+    simplely assume the smaller one in the middle two numbers as median*/
     return median;
 }
 
@@ -33,6 +38,7 @@ int main(int argc, char **argv)
     int type = atoi(argv[3]);
     MPI_Status status;
     double t_begin, t_end, t;
+    double t_begin_s, t_end_s, t_s;
 
     MPI_Init(&argc, &argv);
     int n;
@@ -71,7 +77,12 @@ int main(int argc, char **argv)
     chunk = (int *)malloc(c * sizeof(int));
     MPI_Scatter(data, c, MPI_INT, chunk, c, MPI_INT, 0, MPI_COMM_WORLD);
 
-    if(n%p !=0){
+
+    if(n<p){
+        s = 1;
+    }
+    
+    else if(n%p != 0){
         if(rank == p-1) //last processor may contain less numbers than normal ones
         {
             s = n - c*rank;
@@ -96,9 +107,6 @@ int main(int argc, char **argv)
     
     qsort(chunk, s, sizeof(int),cmp);
 
-
-
-
     for(step = 1; step < p; step = 2*step) //loop for log2p times till converge
     {
         groupsize = p/step;
@@ -114,37 +122,46 @@ int main(int argc, char **argv)
 
        
         i = rank/groupsize; // the processor in which group
+        int allpivot[p];
         if(rank == 0)
         {
             if(type == 1)
             {
-                pivot = allmedian[i*groupsize];
+                for(int ii=0; ii<p/groupsize; ii++){
+                    for(int jj=0; jj<groupsize; jj++)
+                        allpivot[ii*groupsize+jj] = allmedian[ii*groupsize];
+                }
             }
             else
             {
-                int groupmedians[groupsize];
-                for(int j=0; j<groupsize; j++)
-                {
-                    groupmedians[j] = allmedian[i*groupsize+j];
+                int groupmedians[p/groupsize][groupsize];
+                for(int ii=0; ii<p/groupsize; ii++){
+                    for(int jj=0; jj<groupsize; jj++)
+                        groupmedians[ii][jj] = allmedian[ii*groupsize+jj];
                 }
 
                 if(type == 2)
                 {
-                    pivot = median(groupsize, groupmedians);
+                for(int ii=0; ii<p/groupsize; ii++){
+                    for(int jj=0; jj<groupsize; jj++)
+                        allpivot[ii*groupsize+jj] = median(groupsize, groupmedians[ii]);
+                }
                 }
                 if(type == 3)
                 {
+                for(int ii=0; ii<p/groupsize; ii++){
                     int sum = 0;
-                    for(int jj=0; jj<groupsize; jj++)
-                    {
-                        sum += groupmedians[jj];
+                    for(int jj=0; jj<groupsize; jj++){
+                        sum += groupmedians[ii][jj]/groupsize;
                     }
-                    pivot = sum/groupsize;
+                    for(int jj=0; jj<groupsize; jj++)
+                        allpivot[ii*groupsize+jj] = sum;
+                }
                 }
             }
+            free(allmedian);
         }
-        MPI_Bcast(&pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
-
+        MPI_Scatter(allpivot, 1, MPI_INT, &pivot, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
         if(rank>=i*groupsize && rank<(i+1)*groupsize)
         {
@@ -187,6 +204,7 @@ int main(int argc, char **argv)
                     chunk[remain+ii] = recv[ii];
                 }
                 qsort(chunk, s, sizeof(int),cmp);
+
                 free(smaller);
                 free(larger);
                 free(recv);
@@ -211,6 +229,7 @@ int main(int argc, char **argv)
                     chunk[remain+ii] = recv[ii];
                 }
                 qsort(chunk, s, sizeof(int),cmp);  
+
                 free(smaller);
                 free(larger);
                 free(recv);
@@ -220,7 +239,7 @@ int main(int argc, char **argv)
 
     if(rank == 0)
     {
-        data = (int *)malloc(n*sizeof(int));
+        data = (int *)malloc((n>p?n:p)*sizeof(int));
         chunksize = (int *)malloc(p*sizeof(int));
     }
     c_size = s;
@@ -228,12 +247,14 @@ int main(int argc, char **argv)
     if(rank == 0)
     {
         displs = (int *)calloc(p, sizeof(int));
+
         for(int i=1; i<p; i++)
         {
             displs[i] = displs[i-1] + chunksize[i-1];
         }
     }
     MPI_Gatherv(chunk,c_size,MPI_INT,data,chunksize,displs,MPI_INT,0,MPI_COMM_WORLD);
+    free(chunk);
 
     t_end = MPI_Wtime();
 
@@ -248,11 +269,15 @@ int main(int argc, char **argv)
             printf("Error: failed to open output file\n");
             return -1;
         }
-        for(int i=0; i<n; i++)
+
+        int k;
+        for(int i=(n>p?0:p-n); i<(n>p?n:p); i++)
         {
             fprintf(output_file, "%d ", data[i]);
         }
         fclose(output_file);
+
+        free(data);
     }
     MPI_Finalize();
 }
