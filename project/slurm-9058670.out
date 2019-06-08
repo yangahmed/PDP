@@ -1,0 +1,15 @@
+n = 3600
+==============
+1 core
+slurmstepd: error: *** JOB 9058670 ON r439 CANCELLED AT 2019-06-08T18:28:55 DUE TO TIME LIMIT ***
+--------------------------------------------------------------------------
+ORTE has lost communication with a remote daemon.
+
+  HNP daemon   : [[57702,0],0] on node r439
+  Remote daemon: [[57702,0],1] on node r440
+
+This is usually due to either a failure of the TCP network
+connection to the node, or possibly an internal failure of
+the daemon itself. We cannot recover from this failure, and
+therefore will terminate the job.
+--------------------------------------------------------------------------

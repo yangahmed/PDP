@@ -1,10 +1,10 @@
 #!/bin/bash -l
 
 #SBATCH -A g2019005
-#SBATCH -n 2
+#SBATCH -p node -n 16
 #SBATCH -t 30:00
 
-echo "2 cores"
+echo "16 cores"
 module load gcc openmpi
 
 echo "=============="
