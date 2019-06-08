@@ -213,18 +213,18 @@ int main(int argc, char **argv) {
         t = t_end - t_begin;
         printf("%f\n", t);
 
-        // FILE *output_file = fopen(output, "w+");
-        // if (!output_file)
-        // {
-        //     printf("Error: failed to open output file\n");
-        //     return -1;
-        // }
-        // for(int i=0; i<n; i++) {
-        //     for(int j=0; j<n; j++) {
-        //         fprintf(output_file, "%.6f ", C_all[i*n+j]);
-        //     }
-        //     fprintf(output_file, "\n");
-        // }
+        FILE *output_file = fopen(output, "w+");
+        if (!output_file)
+        {
+            printf("Error: failed to open output file\n");
+            return -1;
+        }
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<n; j++) {
+                fprintf(output_file, "%.6f ", C_all[i*n+j]);
+            }
+            fprintf(output_file, "\n");
+        }
         free(C_all);
     }
     MPI_Finalize();
