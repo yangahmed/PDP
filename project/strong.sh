@@ -2,6 +2,7 @@
 
 #SBATCH -A g2019005
 #SBATCH -p node -n 25
+#SBATCH -t 1:00:00
 
 echo "n = 3600"
 module load gcc openmpi

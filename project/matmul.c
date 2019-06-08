@@ -138,14 +138,15 @@ int main(int argc, char **argv) {
         MPI_Bcast(buf_A, size, MPI_FLOAT, m_col, row_comm);
         local_matmul(n_local, buf_A, B, C);
 
-        if(step != p_root-1) {
-            MPI_Sendrecv(B, size, MPI_FLOAT, get_rank(myrow-1, mycol, p_root), 444,
-                buf_B, size, MPI_FLOAT, get_rank(myrow+1, mycol, p_root), 444,
-                MPI_COMM_WORLD, &status);
-            memcpy(B, buf_B, size*sizeof(float));
+        if(step == p_root-1)
+            break;
 
-            m_col = (m_col+1)%p_root;
-        }
+        MPI_Sendrecv(B, size, MPI_FLOAT, get_rank(myrow-1, mycol, p_root), 444,
+            buf_B, size, MPI_FLOAT, get_rank(myrow+1, mycol, p_root), 444,
+            MPI_COMM_WORLD, &status);
+        memcpy(B, buf_B, size*sizeof(float));
+
+        m_col = (m_col+1)%p_root;
     }
     free(A);
     free(B);
