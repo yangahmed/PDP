@@ -136,9 +136,8 @@ int main(int argc, char **argv) {
     MPI_Bcast(buf_A, size, MPI_FLOAT, m_col, row_comm);
     local_matmul(n_local, buf_A, B, C);
 
-    m_col = myrow;
     for(int step=1; step<p_root; step++) {
-        m_col = (m_col+1)%p_root;
+        m_col = (myrow+step)%p_root;
         MPI_Sendrecv(B, size, MPI_FLOAT, get_rank(myrow-1, mycol, p_root), 444,
             buf_B, size, MPI_FLOAT, get_rank(myrow+1, mycol, p_root), 444,
             MPI_COMM_WORLD, &status);
