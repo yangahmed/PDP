@@ -129,9 +129,9 @@ int main(int argc, char **argv) {
     MPI_Comm_split(MPI_COMM_WORLD, myrow, mycol, &row_comm);
 
     /*Fox's algorithm*/
-    m_col = myrow;
+    // m_col = myrow;
     for(int step=0; step<p_root; step++) {
-        // m_col = (myrow+step)%p_root;
+        m_col = (myrow+step)%p_root;
         if(mycol == m_col) {
             memcpy(buf_A, A, size*sizeof(float));
         }
@@ -146,7 +146,7 @@ int main(int argc, char **argv) {
             MPI_COMM_WORLD, &status);
         memcpy(B, buf_B, size*sizeof(float));
 
-        m_col = (m_col+1)%p_root;
+        // m_col = (m_col+1)%p_root;
     }
     free(A);
     free(B);
