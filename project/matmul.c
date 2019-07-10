@@ -93,6 +93,8 @@ int main(int argc, char **argv) {
         fclose(input_file);
     }
 
+    t_begin = MPI_Wtime();
+
     if(p == 1) {
         C_all = (float *)malloc(n*n*sizeof(float));
         local_matmul(n, A_all, B_all, C_all);
@@ -116,7 +118,7 @@ int main(int argc, char **argv) {
     buf_A = (float *)calloc(size, sizeof(float));
     buf_B = (float *)calloc(size, sizeof(float));
 
-    t_begin = MPI_Wtime();
+    // t_begin = MPI_Wtime();
 
     /* scatter the two matrices */
     if(rank == 0) {
