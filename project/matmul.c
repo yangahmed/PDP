@@ -93,17 +93,6 @@ int main(int argc, char **argv) {
         fclose(input_file);
     }
 
-    t_begin = MPI_Wtime();
-
-    if(p == 1) {
-        C_all = (float *)malloc(n*n*sizeof(float));
-        local_matmul(n, A_all, B_all, C_all);
-        free(A_all);
-        free(B_all);
-        free(C_all);
-    }
-    else{
-
     MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
     if(n%p_root != 0) {
@@ -145,9 +134,12 @@ int main(int argc, char **argv) {
         memcpy(buf_A, A, size*sizeof(float));
     }
     MPI_Bcast(buf_A, size, MPI_FLOAT, m_col, row_comm);
+    t_begin = MPI_Wtime();
     local_matmul(n_local, buf_A, B, C);
+    t_end = MPI_Wtime();
 
     for(int step=1; step<p_root; step++) {
+        printf("step");
         MPI_Sendrecv(B, size, MPI_FLOAT, get_rank(myrow-1, mycol, p_root), 444,
             buf_B, size, MPI_FLOAT, get_rank(myrow+1, mycol, p_root), 444,
             MPI_COMM_WORLD, &status);
@@ -197,9 +189,8 @@ int main(int argc, char **argv) {
         }
         free(temp);
     }
-    }
 
-    t_end = MPI_Wtime();
+    // t_end = MPI_Wtime();
 
     /* output */
     if(rank == 0) {
