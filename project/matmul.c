@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
     buf_A = (float *)calloc(size, sizeof(float));
     buf_B = (float *)calloc(size, sizeof(float));
 
-    t_begin = MPI_Wtime();
+    // t_begin = MPI_Wtime();
 
     /* scatter the two matrices */
     if(rank == 0) {
@@ -127,6 +127,8 @@ int main(int argc, char **argv) {
 
     MPI_Comm row_comm;
     MPI_Comm_split(MPI_COMM_WORLD, myrow, mycol, &row_comm);
+
+    t_begin = MPI_Wtime();
 
     /*Fox's algorithm*/
     m_col = myrow;
@@ -154,6 +156,8 @@ int main(int argc, char **argv) {
     free(buf_A);
     free(buf_B);
     MPI_Comm_free(&row_comm);
+
+    t_end = MPI_Wtime();
 
 
     /* gather */
@@ -187,7 +191,7 @@ int main(int argc, char **argv) {
         free(temp);
     }
 
-    t_end = MPI_Wtime();
+    // t_end = MPI_Wtime();
 
     /* output */
     if(rank == 0) {
