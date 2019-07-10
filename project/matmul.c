@@ -149,25 +149,6 @@ int main(int argc, char **argv) {
         MPI_Bcast(buf_A, size, MPI_FLOAT, m_col, row_comm);
         local_matmul(n_local, buf_A, B, C);
     }
-
-    // for(int step=0; step<p_root; step++) {
-    //     m_col = (myrow+step)%p_root;
-    //     if(mycol == m_col) {
-    //         memcpy(buf_A, A, size*sizeof(float));
-    //     }
-    //     MPI_Bcast(buf_A, size, MPI_FLOAT, m_col, row_comm);
-    //     local_matmul(n_local, buf_A, B, C);
-
-    //     if(step == p_root-1)
-    //         break;
-
-    //     MPI_Sendrecv(B, size, MPI_FLOAT, get_rank(myrow-1, mycol, p_root), 444,
-    //         buf_B, size, MPI_FLOAT, get_rank(myrow+1, mycol, p_root), 444,
-    //         MPI_COMM_WORLD, &status);
-    //     memcpy(B, buf_B, size*sizeof(float));
-
-    //     // m_col = (m_col+1)%p_root;
-    // }
     free(A);
     free(B);
     free(buf_A);
@@ -212,7 +193,7 @@ int main(int argc, char **argv) {
     if(rank == 0) {
         t = t_end - t_begin;
         printf("%f\n", t);
-
+/*
         FILE *output_file = fopen(output, "w+");
         if (!output_file)
         {
@@ -225,6 +206,7 @@ int main(int argc, char **argv) {
             }
             fprintf(output_file, "\n");
         }
+        */
         free(C_all);
     }
     MPI_Finalize();
