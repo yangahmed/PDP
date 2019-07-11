@@ -38,13 +38,14 @@ int get_rank(int row, int col, int p_root) {
 
 void local_matmul(int n, float* A, float* B, float* C) {
     /* matrix multiplication */
-    float* temp = (float *)calloc(n*n, sizeof(float));
+    // float* temp = (float *)calloc(n*n, sizeof(float));
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
             for(int k=0; k<n; k++){
-                temp[i*n+j] += A[i*n+k]*B[k*n+j];
+                // temp[i*n+j] += A[i*n+k]*B[k*n+j];
+                C[i*n+j] += A[i*n+k]*B[k*n+j];
             }
-            C[i*n+j] += temp[i*n+j];
+            // C[i*n+j] += temp[i*n+j];
         }
     }
     free(temp);
