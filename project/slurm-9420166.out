@@ -1,0 +1,19 @@
+266.721631
+[r96:04354] *** Process received signal ***
+[r96:04354] Signal: Segmentation fault (11)
+[r96:04354] Signal code: Address not mapped (1)
+[r96:04354] Failing at address: 0x2acabd359008
+[r96:04354] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x2acaa04a65d0]
+[r96:04354] [ 1] /lib64/libc.so.6(cfree+0x1c)[0x2acaa073859c]
+[r96:04354] [ 2] ./matmul[0x401467]
+[r96:04354] [ 3] /lib64/libc.so.6(__libc_start_main+0xf5)[0x2acaa06d53d5]
+[r96:04354] [ 4] ./matmul[0x40158e]
+[r96:04354] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 4354 on node r96 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+slurmstepd: error: *** JOB 9420166 ON r96 CANCELLED AT 2019-07-10T22:49:51 ***
