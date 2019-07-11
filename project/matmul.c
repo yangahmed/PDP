@@ -48,7 +48,7 @@ void local_matmul(int n, float* A, float* B, float* C) {
             // C[i*n+j] += temp[i*n+j];
         }
     }
-    free(temp);
+    // free(temp);
 }
 
 int main(int argc, char **argv) {
