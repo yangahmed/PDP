@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
     buf_A = (float *)calloc(size, sizeof(float));
     buf_B = (float *)calloc(size, sizeof(float));
 
-    // t_begin = MPI_Wtime();
+    t_begin = MPI_Wtime();
 
     /* scatter the two matrices */
     if(rank == 0) {
@@ -134,9 +134,9 @@ int main(int argc, char **argv) {
         memcpy(buf_A, A, size*sizeof(float));
     }
     MPI_Bcast(buf_A, size, MPI_FLOAT, m_col, row_comm);
-    t_begin = MPI_Wtime();
+    // t_begin = MPI_Wtime();
     local_matmul(n_local, buf_A, B, C);
-    t_end = MPI_Wtime();
+    // t_end = MPI_Wtime();
 
     for(int step=1; step<p_root; step++) {
         printf("step");
@@ -190,7 +190,7 @@ int main(int argc, char **argv) {
         free(temp);
     }
 
-    // t_end = MPI_Wtime();
+    t_end = MPI_Wtime();
 
     /* output */
     if(rank == 0) {
